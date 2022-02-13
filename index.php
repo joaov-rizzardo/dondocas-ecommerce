@@ -10,6 +10,6 @@
     $route = new Routes($url);
 
     $path = $route->getFile();
-
+    require_once 'app/views/navbar.php';
     require_once $path;
 ?>
