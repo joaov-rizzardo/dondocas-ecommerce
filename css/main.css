@@ -1,0 +1,30 @@
+div.titulo {
+  height: 1px;
+  background-color: #333;
+  text-align: center;
+  width: 70%;
+}
+
+div.titulo span {
+  background-color: #fff;
+  position: relative;
+  top: -0.8em;
+  padding: 0 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section#categorias {
+  margin-top: 30px;
+}
+section#categorias div#titulo {
+  display: flex;
+  justify-content: center;
+}
+section#categorias div#div-cards {
+  margin-top: 40px;
+  width: 100vw;
+}
+
+/*# sourceMappingURL=main.css.map */
