@@ -1,3 +1,50 @@
-nav{
+#title{
+    text-align: center;
+    padding: 10px;
+    #icons{
+        font-size: 1.2em;
+
+        a{
+            margin: 0px 5px;
+            color: #8866cc;
+        }
+    }
+}
+
+#menus{
+    width: 100vw;
+    padding: 10px;
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    a{
+        color: rgb(19, 18, 18);
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 10px;
+        border-radius: 5px;
+        &:hover{
+            color: #fff;
+            background: #8866cc;
+        }
+    }
+}
+#search{
+    form{
+        display: flex;
+        width: 400px;
+        input{
+            width: 380px;
+            border: none;  
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        button{
+            border: none;
+            background: none;
+        }
+    }
+    
 }

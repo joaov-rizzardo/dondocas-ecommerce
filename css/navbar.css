@@ -1,5 +1,48 @@
-nav {
+#title {
+  text-align: center;
+  padding: 10px;
+}
+#title #icons {
+  font-size: 1.2em;
+}
+#title #icons a {
+  margin: 0px 5px;
+  color: #8866cc;
+}
+
+#menus {
+  width: 100vw;
+  padding: 10px;
   display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+#menus a {
+  color: #131212;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+}
+#menus a:hover {
+  color: #fff;
+  background: #8866cc;
+}
+
+#search form {
+  display: flex;
+  width: 400px;
+}
+#search form input {
+  width: 380px;
+  border: none;
+}
+#search form input:focus {
+  outline: 0;
+}
+#search form button {
+  border: none;
+  background: none;
 }
 
 /*# sourceMappingURL=navbar.css.map */

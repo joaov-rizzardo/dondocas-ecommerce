@@ -7,7 +7,6 @@
     
 </head>
 <body>
-    <button class="btn btn-primary">Botão</button>
-    <a id="teste" href="">Teste</a>
+ 
 </body>
 </html>

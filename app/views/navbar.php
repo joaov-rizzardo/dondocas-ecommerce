@@ -8,17 +8,31 @@
 </head>
 <body>
     <nav>
-        <section>
-            teste
+        <section id="title">
+            <h1>Dondoca's</h1>
+            <div id="icons">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
         </section>
 
-        <section>
-            teste
+        <section id="menus">
+            <a href="">Conjuntos</a>
+            <a href="">Shorts</a>
+            <a href="">Vestidos</a>
+            <a href="">Sapatos</a>
+            <a href="">Acessórios</a>
         </section>
 
-        <section>
-            teste
+        <section id="search" class="d-flex justify-content-center">
+            <form action="" class="form-control">
+                <input type="text" placeholder="Oi, está procurando por algo em específico?">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
         </section>
+
+
     </nav>
 </body>
 </html>
