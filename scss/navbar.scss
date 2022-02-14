@@ -49,6 +49,11 @@
     align-items: center;
 
     button#hamburguer{
+        display: none;
+        @media(max-width: 700px){
+            display: block;
+            width: 10vw;
+        }
         background: none;
         border: none;
         font-size: 28px;
@@ -59,6 +64,9 @@
     form{
         display: flex;
         width: 400px;
+        @media(max-width: 700px){
+            width: 85vw;
+        }
         input{
             width: 380px;
             border: none;  

@@ -26,9 +26,9 @@
         </section>
 
         <section id="search">
-            <button id="hamburguer" class="d-md-none"><i class="fa-solid fa-bars"></i></button>
+            <button id="hamburguer"><i class="fa-solid fa-bars"></i></button>
             <form action="" class="form-control">
-                <input type="text" placeholder="Oi, está procurando por algo em específico?">
+                <input type="text" placeholder="Procurando por algo?">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </section>

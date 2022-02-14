@@ -52,9 +52,16 @@
   }
 }
 #search button#hamburguer {
+  display: none;
   background: none;
   border: none;
   font-size: 28px;
+}
+@media (max-width: 700px) {
+  #search button#hamburguer {
+    display: block;
+    width: 10vw;
+  }
 }
 #search button#hamburguer i {
   height: 40px;
@@ -62,6 +69,11 @@
 #search form {
   display: flex;
   width: 400px;
+}
+@media (max-width: 700px) {
+  #search form {
+    width: 85vw;
+  }
 }
 #search form input {
   width: 380px;
