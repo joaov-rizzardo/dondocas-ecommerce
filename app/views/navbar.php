@@ -25,7 +25,8 @@
             <a href="">Acessórios</a>
         </section>
 
-        <section id="search" class="d-flex justify-content-center">
+        <section id="search">
+            <button id="hamburguer" class="d-md-none"><i class="fa-solid fa-bars"></i></button>
             <form action="" class="form-control">
                 <input type="text" placeholder="Oi, está procurando por algo em específico?">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>

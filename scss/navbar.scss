@@ -1,6 +1,12 @@
 #title{
     text-align: center;
     padding: 10px;
+
+    @media (max-width: 700px){
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+    }
     #icons{
         font-size: 1.2em;
 
@@ -17,6 +23,10 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
+
+    @media (max-width: 700px){
+        display: none;
+    }
     a{
         color: rgb(19, 18, 18);
         text-decoration: none;
@@ -30,6 +40,22 @@
     }
 }
 #search{
+    display: flex;
+    justify-content: center;
+    @media(max-width: 700px){
+        justify-content: space-around;
+    }
+    
+    align-items: center;
+
+    button#hamburguer{
+        background: none;
+        border: none;
+        font-size: 28px;
+        i{
+            height: 40px;
+        }
+    }
     form{
         display: flex;
         width: 400px;
@@ -44,6 +70,7 @@
         button{
             border: none;
             background: none;
+            font-size: 16px;
         }
     }
     
