@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 div.titulo {
   height: 1px;
   background-color: #333;
@@ -23,8 +27,27 @@ section#categorias div#titulo {
   justify-content: center;
 }
 section#categorias div#div-cards {
-  margin-top: 40px;
   width: 100vw;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+section#categorias div#div-cards a.card {
+  width: 25%;
+  background: none;
+  border: none;
+  overflow: hidden;
+}
+section#categorias div#div-cards a.card img {
+  border-radius: 10px;
+  transition: all 0.4s;
+  object-fit: cover;
+  object-position: center;
+}
+section#categorias div#div-cards a.card img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -21,19 +21,17 @@
             </div>
 
             <div id="div-cards">
+                <a class="card">
+                    <img src="img/roupas.jpg" alt="">
+                </a>
 
-                <div class="card">
+                <a class="card">
+                    <img src="img/acessorios.jpg" alt="">
+                </a>
 
-                </div>
-
-                <div class="card">
-
-                </div>
-
-                <div class="card">
-
-                </div>
-
+                <a class="card" >
+                    <img src="img/calcados.jpg" alt="">
+                </a>
             </div>
 
         </section>

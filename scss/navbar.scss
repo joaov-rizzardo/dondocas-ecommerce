@@ -64,12 +64,12 @@
     }
     form{
         display: flex;
-        width: 400px;
+        width: 600px;
         @media(max-width: 700px){
             width: 85vw;
         }
         input{
-            width: 380px;
+            width: 580px;
             border: none;  
             &:focus{
                 outline: 0;
@@ -97,7 +97,8 @@
     z-index: 1;
     gap: 10px;
     position: fixed;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s, visibility 0.5s ease-in-out;
 }
 
