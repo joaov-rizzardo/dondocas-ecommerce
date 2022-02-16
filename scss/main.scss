@@ -1,3 +1,7 @@
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+$margin : 40px;
+
 body{
     overflow-x: hidden;
 }
@@ -6,7 +10,8 @@ div.titulo {
     background-color: #333;
     text-align: center;
     width: 70%;
-  }
+}
+
 div.titulo span {
     background-color: #fff;
     position: relative;
@@ -17,19 +22,18 @@ div.titulo span {
     letter-spacing: 1px;
 }
 
+div.div-titulo{ 
+    display: flex;
+    justify-content: center;
+}
 
 section#categorias{
-    margin-top: 30px;
-    
-
-    div#titulo{
-        display: flex;
-        justify-content: center;
-    }
+    width: 100vw;
+    margin-top: $margin;
     
     div#div-cards{
         width: 100vw;
-        margin-top: 60px;
+        margin-top: $margin;
         display: flex;
         justify-content: space-around;
         gap: 30px;
@@ -54,4 +58,9 @@ section#categorias{
         }
     }
     
+}
+
+#novidades{
+    width: 100vw;
+    margin-top: $margin;
 }
