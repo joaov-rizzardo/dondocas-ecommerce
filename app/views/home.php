@@ -48,14 +48,22 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            <li class="glide__slide"><img src="img/roupas.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="img/roupas.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="img/roupas.jpg" alt=""></li>
+                            <li class="glide__slide">
+                                <a href="" style="display: block;">
+                                    <img src="img/novidades.jpg" alt="">
+                                </a>
+                                <h3>R$ 51,00</h3>
+                                <small>Até 10x (sem juros)</small>
+                            </li>
+
                         </ul>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa-solid fa-angle-left"></i></button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
                     </div>
                 </div>
             </article>
-
 
         </section>
     </main>

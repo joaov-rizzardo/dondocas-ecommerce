@@ -1,5 +1,5 @@
 @import "../node_modules/@glidejs/glide/src/assets/sass/glide.core";
-
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 $margin : 40px;
 
 body{
@@ -63,4 +63,24 @@ section#categorias{
 #novidades{
     width: 100vw;
     margin-top: $margin;
+
+    .glide{
+        >div{
+            ul{
+                text-align: center;
+                li img{
+                    width: 90%;
+                }
+                    
+                
+            }
+
+            button{
+                color: black;
+                font-size: 32px;
+                border: none;
+                background: none;
+            }
+        }
+    }
 }
