@@ -35,7 +35,44 @@
                 </a>
             </div>
         </section>
-
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1><h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1><h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1><h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1><h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1><h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <!-- INICIO DA SESSÃO DE NOVIDADES -->
         <section id="novidades">
             <div class="div-titulo">
                 <div class="titulo">
@@ -49,10 +86,11 @@
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             <li class="glide__slide">
-                                <a href="" style="display: block;">
-                                    <img src="img/novidades.jpg" alt="">
+                                <a href="https://www.google.com.br" style="display: block;">
+                                    <img class="img-novidades" src="img/novidades.jpg" alt="">
                                 </a>
-                                <h3>R$ 51,00</h3>
+                                <span>Macacão listrado</span>
+                                <h6>R$ 51,00</h6>
                                 <small>Até 10x (sem juros)</small>
                             </li>
 
@@ -64,8 +102,15 @@
                     </div>
                 </div>
             </article>
-
         </section>
+        <!-- FIM DA SESSÃO DE NOVIDADES -->
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
+        <h1>teste</h1>
     </main>
 </body>
 

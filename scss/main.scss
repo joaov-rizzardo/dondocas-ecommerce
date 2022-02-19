@@ -68,18 +68,26 @@ section#categorias{
         >div{
             ul{
                 text-align: center;
-                li img{
-                    width: 90%;
-                }
-                    
+                li {
+                    img{
+                        width: 70%;
+
+                    }
                 
+                    small{
+                        font-size: 10px;
+                        color: red;
+                        
+                    }
+                }
             }
 
             button{
                 color: black;
                 font-size: 32px;
                 border: none;
-                background: none;
+                background: transparent;
+                z-index: 1;
             }
         }
     }

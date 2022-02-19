@@ -193,13 +193,18 @@ section#categorias div#div-cards a.card img:hover {
   text-align: center;
 }
 #novidades .glide > div ul li img {
-  width: 90%;
+  width: 70%;
+}
+#novidades .glide > div ul li small {
+  font-size: 10px;
+  color: red;
 }
 #novidades .glide > div button {
   color: black;
   font-size: 32px;
   border: none;
-  background: none;
+  background: transparent;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=main.css.map */
