@@ -189,22 +189,74 @@ section#categorias div#div-cards a.card img:hover {
   width: 100vw;
   margin-top: 40px;
 }
-#novidades .glide > div ul {
+#novidades #slider-novidades {
+  margin-top: 40px;
+}
+#novidades #slider-novidades .glide > div ul {
   text-align: center;
 }
-#novidades .glide > div ul li img {
+#novidades #slider-novidades .glide > div ul li img {
   width: 70%;
 }
-#novidades .glide > div ul li small {
+#novidades #slider-novidades .glide > div ul li small {
   font-size: 10px;
   color: red;
 }
-#novidades .glide > div button {
+#novidades #slider-novidades .glide > div button {
   color: black;
   font-size: 32px;
   border: none;
-  background: transparent;
+  background: #fff;
   z-index: 1;
+}
+@media (max-width: 1000px) {
+  #novidades #slider-novidades .glide > div button {
+    font-size: 24px;
+    width: 40px;
+  }
+}
+@media (max-width: 700px) {
+  #novidades #slider-novidades .glide > div button {
+    font-size: 16px;
+    width: 30px;
+  }
+}
+
+#promocoes {
+  width: 100vw;
+  margin-top: 40px;
+}
+#promocoes #slider-promocoes {
+  margin-top: 40px;
+}
+#promocoes #slider-promocoes .promocoes > div ul {
+  text-align: center;
+}
+#promocoes #slider-promocoes .promocoes > div ul li img {
+  width: 70%;
+}
+#promocoes #slider-promocoes .promocoes > div ul li small {
+  font-size: 10px;
+  color: red;
+}
+#promocoes #slider-promocoes .promocoes > div button {
+  color: black;
+  font-size: 32px;
+  border: none;
+  background: #fff;
+  z-index: 1;
+}
+@media (max-width: 1000px) {
+  #promocoes #slider-promocoes .promocoes > div button {
+    font-size: 24px;
+    width: 40px;
+  }
+}
+@media (max-width: 700px) {
+  #promocoes #slider-promocoes .promocoes > div button {
+    font-size: 16px;
+    width: 30px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

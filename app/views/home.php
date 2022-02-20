@@ -35,43 +35,7 @@
                 </a>
             </div>
         </section>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1><h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1><h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1><h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1><h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1><h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
+
         <!-- INICIO DA SESSÃO DE NOVIDADES -->
         <section id="novidades">
             <div class="div-titulo">
@@ -81,7 +45,7 @@
                     </span>
                 </div>
             </div>
-            <article style="margin-top: 40px;" id="slider-novidades">
+            <article id="slider-novidades">
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
@@ -104,13 +68,39 @@
             </article>
         </section>
         <!-- FIM DA SESSÃO DE NOVIDADES -->
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
-        <h1>teste</h1>
+
+        <!-- INICIO DA SESSÃO DE PROMOÇÕES -->
+
+        <section id="promocoes">
+            <div class="div-titulo">
+                <div class="titulo">
+                    <span>
+                        promoções
+                    </span>
+                </div>
+            </div>
+
+            <article id="slider-promocoes">
+                <div class="promocoes">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <a href="https://www.google.com.br" style="display: block;">
+                                    <img class="img-novidades" src="img/novidades.jpg" alt="">
+                                </a>
+                                <span>Macacão listrado</span>
+                                <h6>R$ 51,00</h6>
+                                <small>Até 10x (sem juros)</small>
+                            </li>
+                        </ul>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa-solid fa-angle-left"></i></button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
     </main>
 </body>
 

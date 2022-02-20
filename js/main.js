@@ -1,5 +1,5 @@
 
-// Configurações para o slider
+// Configurações para o slider de novidades
 let glide = new Glide('.glide', {
   type: 'carousel',
   perView: 3,
@@ -18,12 +18,23 @@ let glide = new Glide('.glide', {
 
 glide.mount()
 
+let promocoes = new Glide('.promocoes', {
+  type: 'carousel',
+  perView: 3,
+  startAt: 0,
+  autoplay: 2000,
+  hoverpause: true,
+  breakpoints: {
+    1024: {
+      perView: 2
+    },
+    600: {
+      perView: 2
+    }
+  }  
+})
 
-// Alinhando o controle do slider com as imagens
-const img = document.querySelector('.img-novidades')
-const coordenadas = img.getBoundingClientRect()
-console.log(coordenadas)
-const setaEsquerda = document.querySelector('.glide__arrow--left');
-setaEsquerda.style.position = 'absolute'
-setaEsquerda.style.top = coordenadas.y
+promocoes.mount()
+
+
 

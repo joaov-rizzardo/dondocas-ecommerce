@@ -27,6 +27,44 @@ div.div-titulo{
     justify-content: center;
 }
 
+@mixin slider{
+    >div{
+        ul{
+            text-align: center;
+            li {
+                img{
+                    width: 70%;
+
+                }
+                small{
+                    font-size: 10px;
+                    color: red;
+                    
+                }
+            }
+        }
+
+        button{
+            color: black;
+            font-size: 32px;
+            border: none;
+            background: #fff;
+            z-index: 1;
+            @media(max-width: 1000px){
+                font-size: 24px;
+                width: 40px;
+            }
+
+            @media(max-width: 700px){
+                font-size: 16px;
+                width: 30px;
+            }
+
+           
+        }
+    }
+}
+
 section#categorias{
     width: 100vw;
     margin-top: $margin;
@@ -63,32 +101,25 @@ section#categorias{
 #novidades{
     width: 100vw;
     margin-top: $margin;
+    
+    #slider-novidades{
+        margin-top: $margin;
 
-    .glide{
-        >div{
-            ul{
-                text-align: center;
-                li {
-                    img{
-                        width: 70%;
+        .glide{
+            @include slider;
+        }
+    }   
+}
 
-                    }
-                
-                    small{
-                        font-size: 10px;
-                        color: red;
-                        
-                    }
-                }
-            }
+#promocoes{
+    width: 100vw;
+    margin-top:$margin;
 
-            button{
-                color: black;
-                font-size: 32px;
-                border: none;
-                background: transparent;
-                z-index: 1;
-            }
+    #slider-promocoes {
+        margin-top: $margin;
+
+        .promocoes{
+            @include slider;
         }
     }
 }
