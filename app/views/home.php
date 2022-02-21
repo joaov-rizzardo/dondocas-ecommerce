@@ -140,12 +140,23 @@
             <div id="div-contato" class="row">
                 <div id="contato-text" class="col-md-6">
                     <span>contato</span>
-                    <div class="d-flex justify-content-center">
+
+                    <div class="contato-itens">
                         <i class="fa-solid fa-phone"></i>Telefone:
-                        <p>(12)</p>
+                        <span>(12) 99756-7730</span>
+                    </div>
+
+                    <div class="contato-itens">
+                    <i class="fa-solid fa-location-dot"></i>Endereço:
+                        <span>Jardim da Fonte, Rua São Paulo Nº20, Cachoeira Paulista - SP - Brasil</span>
+                    </div>
+
+                    <div class="contato-itens">
+                    <i class="fa-solid fa-envelope"></i>Email:
+                        <span>dondocas.modafeminina@gmail.com</span>
                     </div>
                 </div>
-
+                
                 <div class="col-md-6 d-flex justify-content-center">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.952845275617!2d-45.010870385038835!3d-22.655546685140152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3c85b516655adb25!2zMjLCsDM5JzIwLjAiUyA0NcKwMDAnMzEuMyJX!5e0!3m2!1spt-BR!2sbr!4v1645406613765!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>

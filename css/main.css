@@ -305,17 +305,30 @@ section#categorias div#div-cards a.card img:hover {
 }
 
 #contato #div-contato {
-  margin-top: 40px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 #contato #div-contato span {
   font-size: 16px;
   text-transform: uppercase;
   display: block;
+  margin-bottom: 40px;
 }
 #contato #div-contato #contato-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+#contato #div-contato .contato-itens {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+#contato #div-contato .contato-itens span {
+  margin-bottom: 0;
+  text-transform: none;
 }
 
 /*# sourceMappingURL=main.css.map */
