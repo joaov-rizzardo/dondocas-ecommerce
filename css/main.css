@@ -192,11 +192,16 @@ section#categorias div#div-cards a.card img:hover {
 #novidades #slider-novidades {
   margin-top: 40px;
 }
+#novidades #slider-novidades .glide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 #novidades #slider-novidades .glide > div ul {
   text-align: center;
 }
 #novidades #slider-novidades .glide > div ul li img {
-  width: 70%;
+  width: 80%;
 }
 #novidades #slider-novidades .glide > div ul li small {
   font-size: 10px;
@@ -229,17 +234,22 @@ section#categorias div#div-cards a.card img:hover {
 #promocoes #slider-promocoes {
   margin-top: 40px;
 }
-#promocoes #slider-promocoes .promocoes > div ul {
+#promocoes #slider-promocoes .glide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#promocoes #slider-promocoes .glide > div ul {
   text-align: center;
 }
-#promocoes #slider-promocoes .promocoes > div ul li img {
-  width: 70%;
+#promocoes #slider-promocoes .glide > div ul li img {
+  width: 80%;
 }
-#promocoes #slider-promocoes .promocoes > div ul li small {
+#promocoes #slider-promocoes .glide > div ul li small {
   font-size: 10px;
   color: red;
 }
-#promocoes #slider-promocoes .promocoes > div button {
+#promocoes #slider-promocoes .glide > div button {
   color: black;
   font-size: 32px;
   border: none;
@@ -247,16 +257,65 @@ section#categorias div#div-cards a.card img:hover {
   z-index: 1;
 }
 @media (max-width: 1000px) {
-  #promocoes #slider-promocoes .promocoes > div button {
+  #promocoes #slider-promocoes .glide > div button {
     font-size: 24px;
     width: 40px;
   }
 }
 @media (max-width: 700px) {
-  #promocoes #slider-promocoes .promocoes > div button {
+  #promocoes #slider-promocoes .glide > div button {
     font-size: 16px;
     width: 30px;
   }
+}
+
+#newsletter {
+  padding: 32px;
+  background-color: lightgray;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#newsletter > article {
+  text-align: center;
+}
+#newsletter > article span {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+#newsletter > article h3 {
+  font-size: 45px;
+}
+#newsletter > div {
+  text-align: center;
+}
+#newsletter > div p {
+  padding: 0;
+  margin: 0;
+}
+#newsletter article#input-email {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+#newsletter article#input-email input {
+  width: 500px;
+}
+
+#contato #div-contato {
+  margin-top: 40px;
+}
+#contato #div-contato span {
+  font-size: 16px;
+  text-transform: uppercase;
+  display: block;
+}
+#contato #div-contato #contato-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

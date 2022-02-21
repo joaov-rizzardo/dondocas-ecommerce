@@ -28,13 +28,15 @@ div.div-titulo{
 }
 
 @mixin slider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     >div{
         ul{
             text-align: center;
             li {
                 img{
-                    width: 70%;
-
+                    width: 80%;
                 }
                 small{
                     font-size: 10px;
@@ -107,7 +109,7 @@ section#categorias{
 
         .glide{
             @include slider;
-        }
+        }   
     }   
 }
 
@@ -118,8 +120,64 @@ section#categorias{
     #slider-promocoes {
         margin-top: $margin;
 
-        .promocoes{
+        .glide{
             @include slider;
         }
     }
+}
+
+#newsletter{
+    padding: 32px;
+    background-color: lightgray;
+    margin: $margin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >article{
+        text-align: center;
+        span{
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        
+        h3{
+            font-size: 45px;
+        }
+    }
+
+    >div{
+        text-align: center;
+        p{
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    article#input-email{
+        margin-top: $margin;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        input{
+            width: 500px;
+        }
+    }
+}
+
+#contato{
+    #div-contato{
+        margin-top: $margin;
+        span{
+            font-size: 16px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        #contato-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
 }

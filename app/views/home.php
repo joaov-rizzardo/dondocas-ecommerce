@@ -81,7 +81,7 @@
             </div>
 
             <article id="slider-promocoes">
-                <div class="promocoes">
+                <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             <li class="glide__slide">
@@ -100,6 +100,56 @@
                     </div>
                 </div>
             </article>
+        </section>
+
+        <!-- FIM DA SESSÃO DE PROMOÇÕES -->
+
+        <!-- INICIO DA SESSÃO DE NEWSLETTER -->
+        
+        <section id="newsletter">
+            <article>
+                <h3><i class="fa-solid fa-envelope"></i></h3>
+                <span>newsletter</span>
+            </article>
+
+            <div>
+                <p>Não perca tempo!</p>
+                <p>Cadastre o email e fique por dentro de todas as novidades na Dondoca's</p>
+            </div>
+
+            <article id="input-email">
+                <input class="form-control" type="email" name="" id="email" placeholder="Digite o seu email">
+                <button class="btn btn-dark">Enviar</button>
+            </article>
+            
+        </section>
+
+        <!-- FIM DA SESSAO NEWSLETTER -->
+
+        <!-- INICIO DA SESSAO DE CONTATOS -->
+
+        <section id="contato">
+            <div class="div-titulo">
+                <div class="titulo">
+                    <span>
+                        onde nos encontrar
+                    </span>
+                </div>
+            </div>
+
+            <div id="div-contato" class="row">
+                <div id="contato-text" class="col-md-6">
+                    <span>contato</span>
+                    <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-phone"></i>Telefone:
+                        <p>(12)</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex justify-content-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.952845275617!2d-45.010870385038835!3d-22.655546685140152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3c85b516655adb25!2zMjLCsDM5JzIwLjAiUyA0NcKwMDAnMzEuMyJX!5e0!3m2!1spt-BR!2sbr!4v1645406613765!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
         </section>
     </main>
 </body>

@@ -1,40 +1,23 @@
 
-// Configurações para o slider de novidades
-let glide = new Glide('.glide', {
+let sliders = document.querySelectorAll('.glide');
+
+const configs = {
   type: 'carousel',
-  perView: 3,
+  perView: 4,
   startAt: 0,
   autoplay: 2000,
   hoverpause: true,
   breakpoints: {
     1024: {
-      perView: 2
+      perView: 3
     },
     600: {
       perView: 2
     }
-  }  
+  }
+}
+
+sliders.forEach(item => {
+  new Glide(item, configs).mount()
 })
-
-glide.mount()
-
-let promocoes = new Glide('.promocoes', {
-  type: 'carousel',
-  perView: 3,
-  startAt: 0,
-  autoplay: 2000,
-  hoverpause: true,
-  breakpoints: {
-    1024: {
-      perView: 2
-    },
-    600: {
-      perView: 2
-    }
-  }  
-})
-
-promocoes.mount()
-
-
 
