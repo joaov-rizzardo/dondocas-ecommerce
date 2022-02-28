@@ -52,6 +52,7 @@
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
                                     <img class="img-novidades" src="img/novidades.jpg" alt="">
+                                    <h2 class="veja-mais">Veja mais</h2>
                                 </a>
                                 <span>Macacão listrado</span>
                                 <h6>R$ 51,00</h6>
@@ -87,7 +88,10 @@
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
                                     <img class="img-novidades" src="img/novidades.jpg" alt="">
+                                    <h2 class="veja-mais">Veja mais</h2>
                                 </a>
+                                
+
                                 <span>Macacão listrado</span>
                                 <h6>R$ 51,00</h6>
                                 <small>Até 10x (sem juros)</small>
