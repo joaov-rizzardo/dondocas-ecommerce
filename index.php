@@ -25,45 +25,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
     $route = new Routes($url);
 
     $path = $route->getFile();
-    require_once 'app/views/navbar.php';
+    require_once 'app/components/navbar.php';
+    include 'app/components/fixedButtons.php';
     require_once $path;
 ?>
-<!--'
-       ,.                 .,
-       ,: ':.    .,.    .:' :,
-       ,',   '.:'   ':.'   ,',
-       : '.  '         '  .' :
-       ', : '           ' : ,'
-       '.' .,:,.   .,:,. '.'
-        ,:    V '. .' V    :,
-       ,:        / '        :,
-       ,:                   :,
-        ,:       =:=       :,
-         ,: ,     :     , :,
-          :' ',.,' ',.,:' ':
-         :'      ':WW::'   '.
-        .:'       '::::'   ':
-        ,:        '::::'    :,
-        :'         ':::'    ':
-       ,:           ':''     :.
-      .:'             '.     ',.
-     ,:'               ''     '.
-     .:'               .',    ':
-    .:'               .'.,     :
-    .:                .,''     :
-    ::                .,''    ,:
-    ::              .,'','   .:'
-  .,::'.           .,','     ::::.
-.:'     ',.       ,:,       ,WWWWW,
-:'        :       :W:'     :WWWWWWW,          .,.
-:         ',      WWW      WWWWWWWWW          '::,
-'.         ',     WWW     :WWWWWWWWW            '::,
- '.         :     WWW     :WWWWWWWW'             :::
-  '.       ,:     WWW     :WWWWWWW'             .:::
-   '.     .W:     WWW     :WWWWWW'           .,:::'
-    '.   :WW:     WWW     :WWWWW'      .,,:::::''
-   .,'   ''::     :W:     :WWWWW.  .,::::''
-,'        ''','',',','','''WWWWW::::''
- ':,,,,,,,':  :  : : :  :  :WWWW''' BY POSERLACK
-
--->

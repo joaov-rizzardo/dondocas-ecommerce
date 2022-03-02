@@ -1,4 +1,4 @@
-
+// Configurações dos sliders (GliderJS)
 let sliders = document.querySelectorAll('.glide');
 
 const configs = {
