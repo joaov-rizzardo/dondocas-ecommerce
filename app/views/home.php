@@ -11,6 +11,10 @@
 
 <body>
     <main>
+
+        <section id="principal">
+            <img src="img/teste.jpg" alt="">
+        </section>
         <section id="categorias">
 
             <div class="div-titulo">
@@ -23,15 +27,15 @@
 
             <div id="div-cards">
                 <a class="card">
-                    <img src="img/roupas.jpg" alt="">
+                    <img src="img/roup.jpg" alt="">
                 </a>
 
                 <a class="card">
-                    <img src="img/acessorios.jpg" alt="">
+                    <img src="img/acces.jpg" alt="">
                 </a>
 
                 <a class="card">
-                    <img src="img/calcados.jpg" alt="">
+                    <img src="img/calc.jpg" alt="">
                 </a>
             </div>
         </section>
@@ -54,9 +58,11 @@
                                     <img class="img-novidades" src="img/novidades.jpg" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
-                                <span>Macacão listrado</span>
-                                <h6>R$ 51,00</h6>
-                                <small>Até 10x (sem juros)</small>
+                                <div>
+                                    <span>Macacão listrado</span>
+                                    <h6>R$ 51,00</h6>
+                                    <small>Até 10x (sem juros)</small>
+                                </div>
                             </li>
 
                         </ul>
@@ -90,7 +96,6 @@
                                     <img class="img-novidades" src="img/novidades.jpg" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
-                                
 
                                 <span>Macacão listrado</span>
                                 <h6>R$ 51,00</h6>
@@ -109,7 +114,7 @@
         <!-- FIM DA SESSÃO DE PROMOÇÕES -->
 
         <!-- INICIO DA SESSÃO DE NEWSLETTER -->
-        
+
         <section id="newsletter">
             <article>
                 <h3><i class="fa-solid fa-envelope"></i></h3>
@@ -125,7 +130,7 @@
                 <input class="form-control" type="email" name="" id="email" placeholder="Digite o seu email">
                 <button class="btn btn-dark">Enviar</button>
             </article>
-            
+
         </section>
 
         <!-- FIM DA SESSAO NEWSLETTER -->
@@ -143,23 +148,22 @@
 
             <div id="div-contato" class="row">
                 <div id="contato-text" class="col-md-6">
-                    <span>contato</span>
                     <div class="contato-itens">
                         <i class="fa-solid fa-phone"></i>
                         <span>(12) 99756-7730</span>
                     </div>
 
                     <div class="contato-itens">
-                    <i class="fa-solid fa-location-dot"></i>
+                        <i class="fa-solid fa-location-dot"></i>
                         <span>Jardim da Fonte, Rua São Paulo Nº20, Cachoeira Paulista - SP - Brasil</span>
                     </div>
 
                     <div class="contato-itens">
-                    <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-envelope"></i>
                         <span>dondocas.modafeminina@gmail.com</span>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 d-flex justify-content-center">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.952845275617!2d-45.010870385038835!3d-22.655546685140152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3c85b516655adb25!2zMjLCsDM5JzIwLjAiUyA0NcKwMDAnMzEuMyJX!5e0!3m2!1spt-BR!2sbr!4v1645406613765!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>

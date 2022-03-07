@@ -10,8 +10,9 @@
 
 <body>
     <a href="https://api.whatsapp.com/send?phone=5512997567730" class="fixedButton">
-        <img src="img/wpp.png" alt="">
-    </a>   
+        <img src="img/wpp.png" alt="Icone whatsapp">
+        <span>WhatsApp</span>
+    </a>
 </body>
 
 </html>

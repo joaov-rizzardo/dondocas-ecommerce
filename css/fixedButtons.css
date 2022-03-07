@@ -1,13 +1,42 @@
 a.fixedButton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: fixed;
   right: 0px;
   bottom: 0px;
-  z-index: 1;
   margin: 40px;
   z-index: 2;
+  width: 150px;
+  background: #50CD5E;
+  color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+a.fixedButton span {
+  font-size: 16px;
 }
 a.fixedButton img {
-  width: 70px;
+  width: 20px;
+}
+@media (max-width: 700px) {
+  a.fixedButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 20px;
+    padding: 5px;
+  }
+  a.fixedButton img {
+    width: 30px;
+  }
+  a.fixedButton span {
+    display: none;
+  }
+}
+a.fixedButton:hover {
+  filter: brightness(0.9);
 }
 
 /*# sourceMappingURL=fixedButtons.css.map */
