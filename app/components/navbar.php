@@ -37,74 +37,11 @@
         </section>
 
         <section id="menufull">
-            <hr>
             <a href="">Conjuntos</a>
-            <hr>
             <a href="">Shorts</a>
-            <hr>
             <a href="">Vestidos</a>
-            <hr>
             <a href="">Sapatos</a>
-            <hr>
             <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Conjuntos</a>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            <hr>
-            <a href="">Shorts</a>
-            <hr>
-            <a href="">Vestidos</a>
-            <hr>
-            <a href="">Sapatos</a>
-            <hr>
-            <a href="">Acessórios</a>
-            <hr>
-            
         </section>
 
 

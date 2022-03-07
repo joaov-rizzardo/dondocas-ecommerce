@@ -158,13 +158,11 @@ section#categorias{
     }
 }
 
-#newsletter{
+section#newsletter{
     padding: 32px;
     background-color: lightgray;
-    margin: $margin;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: $margin;
+
     >article{
         text-align: center;
         span{
@@ -202,6 +200,7 @@ section#categorias{
 
 
 #contato{
+    margin-top: $margin;
     #div-contato{
         margin-top: 20px;
         display: flex;
@@ -225,6 +224,7 @@ section#categorias{
             align-items: center;
             gap: 5px;
             margin-bottom: 15px;
+            text-align: center;
             
             i{
                 font-size: 24px;

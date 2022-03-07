@@ -118,7 +118,7 @@
 
             <div>
                 <p>Não perca tempo!</p>
-                <p>Cadastre o email e fique por dentro de todas as novidades na Dondoca's</p>
+                <p>Cadastre seu email e fique por dentro de todas as novidades na Dondoca's</p>
             </div>
 
             <article id="input-email">

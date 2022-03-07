@@ -311,46 +311,46 @@ section#categorias div#div-cards a.card img:hover {
   }
 }
 
-#newsletter {
+section#newsletter {
   padding: 32px;
   background-color: lightgray;
-  margin: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 40px;
 }
-#newsletter > article {
+section#newsletter > article {
   text-align: center;
 }
-#newsletter > article span {
+section#newsletter > article span {
   font-size: 24px;
   text-transform: uppercase;
 }
-#newsletter > article h3 {
+section#newsletter > article h3 {
   font-size: 45px;
 }
-#newsletter > div {
+section#newsletter > div {
   text-align: center;
 }
-#newsletter > div p {
+section#newsletter > div p {
   padding: 0;
   margin: 0;
 }
-#newsletter article#input-email {
+section#newsletter article#input-email {
   margin-top: 40px;
   display: flex;
   justify-content: center;
   gap: 5px;
 }
-#newsletter article#input-email input {
+section#newsletter article#input-email input {
   width: 500px;
 }
 @media (max-width: 700px) {
-  #newsletter article#input-email input {
+  section#newsletter article#input-email input {
     width: 250px;
   }
 }
 
+#contato {
+  margin-top: 40px;
+}
 #contato #div-contato {
   margin-top: 20px;
   display: flex;
@@ -373,6 +373,7 @@ section#categorias div#div-cards a.card img:hover {
   align-items: center;
   gap: 5px;
   margin-bottom: 15px;
+  text-align: center;
 }
 #contato #div-contato .contato-itens i {
   font-size: 24px;
