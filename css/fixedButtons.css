@@ -22,11 +22,10 @@ a.fixedButton img {
 }
 @media (max-width: 700px) {
   a.fixedButton {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 30px;
     margin: 20px;
-    padding: 5px;
   }
   a.fixedButton img {
     width: 30px;

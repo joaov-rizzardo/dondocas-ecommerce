@@ -63,9 +63,6 @@
     width: 10vw;
   }
 }
-#search button#hamburguer i {
-  height: 40px;
-}
 #search form {
   display: flex;
   width: 600px;
