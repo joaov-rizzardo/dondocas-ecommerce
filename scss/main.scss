@@ -17,7 +17,7 @@ div.titulo span {
     position: relative;
     top: -0.8em;
     padding: 0 10px;
-    font-size: 24px;
+    font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -33,7 +33,10 @@ div.div-titulo{
     flex-direction: column;
     justify-content: center;
     >div{
-        margin: 0px 50px;
+        margin: 0 70px;
+        @media(max-width: 992px){
+            margin: 0;
+        }
         ul{
             text-align: center;
             li {
@@ -66,10 +69,9 @@ div.div-titulo{
                         }
                     }
                 }
-                
-                
+                                
                 small{
-                    font-size: 10px;
+                    font-size: 0.6em;
                     color: red;
                     
                 }
@@ -78,10 +80,22 @@ div.div-titulo{
 
         button{
             color: #000000;
-            font-size: 32px;
+            font-size: 1.6em;
             border: none;
             z-index: 1;
-           
+            top: 40%;
+            box-shadow: none;
+            text-shadow: none;
+            @media(max-width: 768px){
+                font-size: 1.5em;
+            }
+        }
+
+        .glide__arrow--left {
+            left: 16px;
+        }
+        .glide__arrow--right {
+            right: 16px;
         }
 
     }
@@ -158,12 +172,12 @@ section#newsletter{
     >article{
         text-align: center;
         span{
-            font-size: 24px;
+            font-size: 1.5em;
             text-transform: uppercase;
         }
-        
-        h3{
-            font-size: 45px;
+
+        i{
+            font-size: 2.5em;
         }
     }
 
@@ -212,7 +226,7 @@ section#newsletter{
             text-align: center;
             
             i{
-                font-size: 24px;
+                font-size: 1.5em;
             }
             span{
                 margin-bottom: 0;

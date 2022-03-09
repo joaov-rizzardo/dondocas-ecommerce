@@ -147,7 +147,7 @@ div.titulo span {
   position: relative;
   top: -0.8em;
   padding: 0 10px;
-  font-size: 24px;
+  font-size: 1.5em;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -202,7 +202,12 @@ section#categorias div#div-cards a.card img:hover {
   justify-content: center;
 }
 #novidades #slider-novidades .glide > div {
-  margin: 0px 50px;
+  margin: 0 70px;
+}
+@media (max-width: 992px) {
+  #novidades #slider-novidades .glide > div {
+    margin: 0;
+  }
 }
 #novidades #slider-novidades .glide > div ul {
   text-align: center;
@@ -232,14 +237,28 @@ section#categorias div#div-cards a.card img:hover {
   opacity: 1;
 }
 #novidades #slider-novidades .glide > div ul li small {
-  font-size: 10px;
+  font-size: 0.6em;
   color: red;
 }
 #novidades #slider-novidades .glide > div button {
   color: #000000;
-  font-size: 32px;
+  font-size: 1.6em;
   border: none;
   z-index: 1;
+  top: 40%;
+  box-shadow: none;
+  text-shadow: none;
+}
+@media (max-width: 768px) {
+  #novidades #slider-novidades .glide > div button {
+    font-size: 1.5em;
+  }
+}
+#novidades #slider-novidades .glide > div .glide__arrow--left {
+  left: 16px;
+}
+#novidades #slider-novidades .glide > div .glide__arrow--right {
+  right: 16px;
 }
 
 #promocoes {
@@ -255,7 +274,12 @@ section#categorias div#div-cards a.card img:hover {
   justify-content: center;
 }
 #promocoes #slider-promocoes .glide > div {
-  margin: 0px 50px;
+  margin: 0 70px;
+}
+@media (max-width: 992px) {
+  #promocoes #slider-promocoes .glide > div {
+    margin: 0;
+  }
 }
 #promocoes #slider-promocoes .glide > div ul {
   text-align: center;
@@ -285,14 +309,28 @@ section#categorias div#div-cards a.card img:hover {
   opacity: 1;
 }
 #promocoes #slider-promocoes .glide > div ul li small {
-  font-size: 10px;
+  font-size: 0.6em;
   color: red;
 }
 #promocoes #slider-promocoes .glide > div button {
   color: #000000;
-  font-size: 32px;
+  font-size: 1.6em;
   border: none;
   z-index: 1;
+  top: 40%;
+  box-shadow: none;
+  text-shadow: none;
+}
+@media (max-width: 768px) {
+  #promocoes #slider-promocoes .glide > div button {
+    font-size: 1.5em;
+  }
+}
+#promocoes #slider-promocoes .glide > div .glide__arrow--left {
+  left: 16px;
+}
+#promocoes #slider-promocoes .glide > div .glide__arrow--right {
+  right: 16px;
 }
 
 section#newsletter {
@@ -304,11 +342,11 @@ section#newsletter > article {
   text-align: center;
 }
 section#newsletter > article span {
-  font-size: 24px;
+  font-size: 1.5em;
   text-transform: uppercase;
 }
-section#newsletter > article h3 {
-  font-size: 45px;
+section#newsletter > article i {
+  font-size: 2.5em;
 }
 section#newsletter > div {
   text-align: center;
@@ -354,7 +392,7 @@ section#newsletter article#input-email input {
   text-align: center;
 }
 #contato #div-contato .contato-itens i {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 #contato #div-contato .contato-itens span {
   margin-bottom: 0;

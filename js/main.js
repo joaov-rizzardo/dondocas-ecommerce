@@ -8,10 +8,10 @@ const configs = {
   autoplay: 2000,
   hoverpause: true,
   breakpoints: {
-    1024: {
+    992: {
       perView: 3
     },
-    600: {
+    768: {
       perView: 2
     }
   }
@@ -20,4 +20,6 @@ const configs = {
 sliders.forEach(item => {
   new Glide(item, configs).mount()
 })
+
+
 

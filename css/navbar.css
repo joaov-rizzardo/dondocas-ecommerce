@@ -2,7 +2,7 @@
   text-align: center;
   padding: 10px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   #title {
     display: flex;
     justify-content: space-around;
@@ -24,7 +24,7 @@
   justify-content: space-around;
   margin-bottom: 10px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   #menus {
     display: none;
   }
@@ -46,7 +46,7 @@
   justify-content: center;
   align-items: center;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   #search {
     justify-content: space-around;
   }
@@ -55,19 +55,21 @@
   display: none;
   background: none;
   border: none;
-  font-size: 28px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   #search button#hamburguer {
     display: block;
     width: 10vw;
   }
 }
+#search button#hamburguer i {
+  font-size: 1.8em;
+}
 #search form {
   display: flex;
   width: 600px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   #search form {
     width: 85vw;
   }
@@ -82,7 +84,7 @@
 #search form button {
   border: none;
   background: none;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 #menufull {
