@@ -1,3 +1,67 @@
+article#title {
+  border-bottom: 2px solid #000000;
+  margin-top: 30px;
+}
+article#title h1 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
 
+section#products {
+  margin-top: 20px;
+}
+section#products article#information {
+  margin: 0px 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+section#products article#information span {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+section#products article#information select {
+  width: 300px;
+  border-radius: 20px;
+}
+
+article#items {
+  margin: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+article#items div.product-item {
+  width: 23%;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+  article#items div.product-item {
+    width: 32%;
+  }
+}
+@media (max-width: 768px) {
+  article#items div.product-item {
+    width: 48%;
+  }
+}
+article#items div.product-item a {
+  width: 100%;
+}
+article#items div.product-item img {
+  width: 100%;
+}
+article#items div.product-information {
+  text-align: center;
+}
+article#items div.product-information span {
+  display: block;
+}
+article#items button {
+  margin-top: 10px;
+  width: 100%;
+}
 
 /*# sourceMappingURL=products.css.map */

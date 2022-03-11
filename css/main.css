@@ -364,7 +364,7 @@ section#newsletter article#input-email {
 section#newsletter article#input-email input {
   width: 500px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   section#newsletter article#input-email input {
     width: 250px;
   }
