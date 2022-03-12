@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/item.css">
+    <link rel="stylesheet" href="<?=$pathBase?>css/item.css">
     <!--<script defer src="js/main.js"></script>-->
 </head>
 
@@ -15,21 +15,21 @@
             <article class="col-md-8 col-lg-6" id="images">
                 <div id="list-images">
                     <div class="list-image-border">
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </div>
 
                     <div>
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </div>
 
                     <div>
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </div>
                     
                 </div>
 
                 <div id="selected-image">
-                    <img src="img/novidades.jpg" alt="">
+                    <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                 </div>
             </article>
 

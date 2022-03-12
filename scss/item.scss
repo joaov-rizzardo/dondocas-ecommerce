@@ -1,6 +1,7 @@
 .list-image-border{
     border: 1px solid #000000;
 }
+
 body{
     overflow-x: hidden;
 }
@@ -19,7 +20,6 @@ article#images{
         flex-direction: column;
         width: 10%;
         >div{
-            //width: 100%;
             margin-bottom: 20px;
             padding: 5px;
             img{

@@ -13,7 +13,7 @@
     <main>
 
         <section id="principal">
-            <img src="img/teste.jpg" alt="">
+            <img src="<?=$pathBase?>img/teste.jpg" alt="">
         </section>
         <section id="categorias">
 
@@ -27,15 +27,15 @@
 
             <div id="div-cards">
                 <a class="card">
-                    <img src="img/roup.jpg" alt="">
+                    <img src="<?=$pathBase?>img/roup.jpg" alt="">
                 </a>
 
                 <a class="card">
-                    <img src="img/acces.jpg" alt="">
+                    <img src="<?=$pathBase?>img/acces.jpg" alt="">
                 </a>
 
                 <a class="card">
-                    <img src="img/calc.jpg" alt="">
+                    <img src="<?=$pathBase?>img/calc.jpg" alt="">
                 </a>
             </div>
         </section>
@@ -55,7 +55,7 @@
                         <ul class="glide__slides">
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
-                                    <img class="img-novidades" src="img/novidades.jpg" alt="">
+                                    <img class="img-novidades" src="<?=$pathBase?>img/novidades.jpg" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
                                 <div>
@@ -93,7 +93,7 @@
                         <ul class="glide__slides">
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
-                                    <img class="img-novidades" src="img/novidades.jpg" alt="">
+                                    <img class="img-novidades" src="<?=$pathBase?>img/novidades.jpg" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
 

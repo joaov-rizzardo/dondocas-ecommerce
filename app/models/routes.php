@@ -22,9 +22,25 @@ class Routes {
             case 'item':
                 $this->file= './app/views/item.php';
             break;
+
+            case 'adm/cadastro/produto':
+                $this->file = './app/views/cadastroProdutos.php';
+            break;
         }
 
         return $this->file;
+    }
+
+    // USADO PARA ENCONTRAR O PATH RAIZ PARA OS INCLUDES
+    public function getPathBase(){
+        $arrPath = explode('/', $this->url);
+        $pathBase = '';
+
+        for($i = 0; $i < count($arrPath) - 1; $i++){
+            $pathBase .= '../';
+        }
+
+        return $pathBase;
     }
 }
 ?>

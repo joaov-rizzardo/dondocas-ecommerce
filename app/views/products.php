@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="<?=$pathBase?>css/products.css">
     <!--<script defer src="js/main.js"></script>-->
 </head>
 
@@ -27,7 +27,7 @@
             <article id="items">
                 <div class="product-item">
                     <a href="">
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </a>
                     
                     <div class="product-information">
@@ -40,7 +40,7 @@
 
                 <div class="product-item">
                     <a href="">
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </a>
                     
                     <div class="product-information">
@@ -53,7 +53,7 @@
 
                 <div class="product-item">
                     <a href="">
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </a>
                     
                     <div class="product-information">
@@ -66,7 +66,7 @@
 
                 <div class="product-item">
                     <a href="">
-                        <img src="img/novidades.jpg" alt="">
+                        <img src="<?=$pathBase?>img/novidades.jpg" alt="">
                     </a>
                     
                     <div class="product-information">
