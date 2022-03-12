@@ -1,3 +1,9 @@
+.list-image-border{
+    border: 1px solid #000000;
+}
+body{
+    overflow-x: hidden;
+}
 section#product{
     margin-top: 40px;
 
@@ -13,10 +19,15 @@ article#images{
         flex-direction: column;
         width: 10%;
         >div{
-            width: 100%;
+            //width: 100%;
+            margin-bottom: 20px;
+            padding: 5px;
             img{
                 width: 100%;
-                margin-bottom: 20px;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }       
     }
@@ -32,7 +43,49 @@ article#images{
 article#information{
     display: flex;
     flex-direction: column;
+    padding: 16px;
+    span#price{
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
     select{
-        width: 100px;
+        width: 80%;
+        border-radius: 20px;
+        margin-bottom: 20px;
+
+         @media(max-width: 992px){
+            width: 100%;
+        }
+    }
+
+    button#buy, button#add-car{
+        margin-bottom: 10px;
+        width: 80%;
+        @media(max-width: 992px){
+            width: 100%;
+        }
+    }
+
+    >div#cep-area{
+        span{
+            display: block;
+            margin-bottom: 10px;
+        }
+        >div{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            @media(max-width: 992px){
+                input{
+                    width: 60%;
+                }
+    
+                button{
+                    width: 40%;
+                }
+            }
+            
+        }
     }
 }

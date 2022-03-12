@@ -1,3 +1,11 @@
+.list-image-border {
+  border: 1px solid #000000;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 section#product {
   margin-top: 40px;
 }
@@ -14,11 +22,14 @@ article#images > div#list-images {
   width: 10%;
 }
 article#images > div#list-images > div {
-  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
 }
 article#images > div#list-images > div img {
   width: 100%;
-  margin-bottom: 20px;
+}
+article#images > div#list-images > div img:hover {
+  cursor: pointer;
 }
 article#images > div#selected-image {
   width: 60%;
@@ -30,9 +41,47 @@ article#images > div#selected-image img {
 article#information {
   display: flex;
   flex-direction: column;
+  padding: 16px;
+}
+article#information span#price {
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 article#information select {
-  width: 100px;
+  width: 80%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+  article#information select {
+    width: 100%;
+  }
+}
+article#information button#buy, article#information button#add-car {
+  margin-bottom: 10px;
+  width: 80%;
+}
+@media (max-width: 992px) {
+  article#information button#buy, article#information button#add-car {
+    width: 100%;
+  }
+}
+article#information > div#cep-area span {
+  display: block;
+  margin-bottom: 10px;
+}
+article#information > div#cep-area > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width: 992px) {
+  article#information > div#cep-area > div input {
+    width: 60%;
+  }
+  article#information > div#cep-area > div button {
+    width: 40%;
+  }
 }
 
 /*# sourceMappingURL=item.css.map */

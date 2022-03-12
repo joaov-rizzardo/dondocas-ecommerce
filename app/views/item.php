@@ -14,7 +14,7 @@
         <section id="product" class="row">
             <article class="col-md-8 col-lg-6" id="images">
                 <div id="list-images">
-                    <div>
+                    <div class="list-image-border">
                         <img src="img/novidades.jpg" alt="">
                     </div>
 
