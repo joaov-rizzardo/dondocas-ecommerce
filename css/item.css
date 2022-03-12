@@ -1,0 +1,38 @@
+section#product {
+  margin-top: 40px;
+}
+
+article#images {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 15px;
+}
+article#images > div#list-images {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+article#images > div#list-images > div {
+  width: 100%;
+}
+article#images > div#list-images > div img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+article#images > div#selected-image {
+  width: 60%;
+}
+article#images > div#selected-image img {
+  width: 100%;
+}
+
+article#information {
+  display: flex;
+  flex-direction: column;
+}
+article#information select {
+  width: 100px;
+}
+
+/*# sourceMappingURL=item.css.map */

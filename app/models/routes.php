@@ -18,6 +18,10 @@ class Routes {
             case 'produtos':
                 $this->file = './app/views/products.php';
             break;
+
+            case 'item':
+                $this->file= './app/views/item.php';
+            break;
         }
 
         return $this->file;
