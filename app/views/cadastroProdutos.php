@@ -8,9 +8,8 @@
     
     <!-- CROPPER -->
     <script src="<?=$pathBase?>node_modules/cropperjs/dist/cropper.js"></script>
-    <script src="<?=$pathBase?>node_modules/jquery-cropper/dist/jquery-cropper.js"></script>
-    <link rel="stylesheet" href="<?=$pathBase?>node_modules/cropperjs/src/css/cropper.css">
-
+    <link rel="stylesheet" href="<?=$pathBase?>node_modules/cropperjs/dist/cropper.css">
+    
     <link rel="stylesheet" href="<?=$pathBase?>css/cadastroProdutos.css">
     <script defer src="<?=$pathBase?>js/cadastroProdutos.js"></script>
 </head>
@@ -55,7 +54,7 @@
 
                 <div class="item">
                     <label>Foto:</label>
-                    <input class="form-control" type="file">
+                    <input class="form-control" type="file" id="img-file">
                 </div>
             </article>
 
@@ -68,7 +67,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-body d-flex justify-content-center">
-                    <img src="<?=$pathBase?>img/novidades.jpg" alt="">
+                    <img id="img-modal" src="<?=$pathBase?>img/novidades.jpg" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="save-img">Salvar</button>

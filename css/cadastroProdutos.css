@@ -23,9 +23,13 @@ section#register article {
 .item label {
   width: 100px;
 }
-.item .modal-body {
+
+.modal-body {
   display: flex;
   justify-content: center;
+}
+.modal-body img {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=cadastroProdutos.css.map */
