@@ -1,7 +1,15 @@
 $(document).ready(() => {
     $('#save').click(() => {
-        console.log($('#modal'))
-        $('.modal').show();
+        const files = document.querySelector('#img-file').files
+        let reader = new FileReader();
+
+        reader.readAsDataURL(files[0])
+
+        reader.onload = () => {
+            console.log(reader.result)
+        }
+        
+        
     })
 
     $('#save-img').click(() => {
