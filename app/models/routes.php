@@ -24,7 +24,7 @@ class Routes {
             break;
 
             case 'adm/cadastro/produto':
-                $this->file = './app/views/cadastroProdutos.php';
+                $this->file = './app/views/productsRegister.php';
             break;
         }
 

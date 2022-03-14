@@ -13,8 +13,8 @@
     <!-- JQUERY MASK -->
     <script src="<?=$pathBase?>node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
-    <link rel="stylesheet" href="<?=$pathBase?>css/cadastroProdutos.css">
-    <script defer src="<?=$pathBase?>js/cadastroProdutos.js"></script>
+    <link rel="stylesheet" href="<?=$pathBase?>css/productsRegister.css">
+    <script defer src="<?=$pathBase?>js/productsRegister.js"></script>
 </head>
 
 <body>
