@@ -1,4 +1,10 @@
 $(document).ready(() => {
+
+    // AQUI DEVE FICAR TODAS AS MASCARAS UTILIZADAS NA PÁGINA
+    $('#product-value').mask('00000,00', {
+        reverse: true
+    })
+
     $('#save').click(() => {
         const files = document.querySelector('#img-file').files
         let reader = new FileReader();
@@ -16,6 +22,10 @@ $(document).ready(() => {
         $('.modal').hide();
     })
 
+    //----------------------------------------------------------------------------//
+    //                 FLUXO PARA REALIZAR O CROP DA IMAGEM                       //
+    //----------------------------------------------------------------------------//
+
     $('#img-file').on('change', event => {
         const $image = document.querySelector('#img-modal')
         
@@ -23,21 +33,20 @@ $(document).ready(() => {
 
         let reader = new FileReader();
 
+        // RECEBE A URL DA IMAGEM
         reader.readAsDataURL(files[0])
 
-        //console.log(reader)
         reader.onload = () => {
-            console.log(reader.result)
             $image.src = reader.result
             $('.modal').show()
-
+            
+            // CONFIGURAÇÕES PARA O CROPPER
             const cropper = new Cropper($image, {
-                aspectRatio: 16/9,
-                dragMode: 'move',
+                aspectRatio: 10/13,
+                dragMode : 'move',
+                viewMode : 3,
+                highlight : false,
                 background: false,
-                movable: false,
-                scalable: false,
-                zoomable: false,
                 crop: event => {
                     console.log(event.detail.x);
                     console.log(event.detail.y);

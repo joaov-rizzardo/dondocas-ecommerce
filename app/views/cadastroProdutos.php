@@ -9,7 +9,10 @@
     <!-- CROPPER -->
     <script src="<?=$pathBase?>node_modules/cropperjs/dist/cropper.js"></script>
     <link rel="stylesheet" href="<?=$pathBase?>node_modules/cropperjs/dist/cropper.css">
-    
+
+    <!-- JQUERY MASK -->
+    <script src="<?=$pathBase?>node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
     <link rel="stylesheet" href="<?=$pathBase?>css/cadastroProdutos.css">
     <script defer src="<?=$pathBase?>js/cadastroProdutos.js"></script>
 </head>
@@ -27,7 +30,7 @@
 
                 <div class="item">
                     <label>Valor:</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="product-value" placeholder="0000,00">
                 </div>
 
                 <div class="item">
@@ -66,8 +69,8 @@
         <div class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                <div class="modal-body d-flex justify-content-center">
-                    <img id="img-modal" src="<?=$pathBase?>img/novidades.jpg" alt="">
+                <div class="modal-body">
+                    <img id="img-modal" src="" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="save-img">Salvar</button>
