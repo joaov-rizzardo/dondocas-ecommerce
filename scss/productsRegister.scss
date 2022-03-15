@@ -37,6 +37,11 @@ section#register{
 .modal-body{
     padding: 0;
     img{
+        max-height: 40vw;
+        @media(max-width: 992px){
+            max-height: 70vw;
+        }
         max-width: 100%;
+        
     }
 }

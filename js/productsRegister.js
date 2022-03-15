@@ -18,10 +18,6 @@ $(document).ready(() => {
         
     })
 
-    $('#save-img').click(() => {
-        $('.modal').hide();
-    })
-
     //----------------------------------------------------------------------------//
     //                 FLUXO PARA REALIZAR O CROP DA IMAGEM                       //
     //----------------------------------------------------------------------------//
@@ -31,6 +27,8 @@ $(document).ready(() => {
         
         let files = event.target.files
 
+        console.log(files)
+
         let reader = new FileReader();
 
         // RECEBE A URL DA IMAGEM
@@ -39,24 +37,30 @@ $(document).ready(() => {
         reader.onload = () => {
             $image.src = reader.result
             $('.modal').show()
-            
+        
             // CONFIGURAÇÕES PARA O CROPPER
             const cropper = new Cropper($image, {
                 aspectRatio: 10/13,
                 dragMode : 'move',
-                viewMode : 3,
+                viewMode : 1,
                 highlight : false,
                 background: false,
                 crop: event => {
-                    console.log(event.detail.x);
-                    console.log(event.detail.y);
-                    console.log(event.detail.width);
-                    console.log(event.detail.height);
-                    console.log(event.detail.rotate);
-                    console.log(event.detail.scaleX);
-                    console.log(event.detail.scaleY);
+                    //console.log(event.detail.x);
+                    //console.log(event.detail.y);
+                    //console.log(event.detail.width);
+                    //console.log(event.detail.height);
+                    //console.log(event.detail.rotate);
+                    //console.log(event.detail.scaleX);
+                    //console.log(event.detail.scaleY);
                 }
             })
+            console.log(cropper)
+            $('#save-img').on('click', () => {
+                cropper.destroy()
+                $('.modal').hide()
+            })
+        
 
         }
 

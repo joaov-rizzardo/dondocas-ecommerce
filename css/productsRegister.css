@@ -36,7 +36,13 @@ section#register article {
   padding: 0;
 }
 .modal-body img {
+  max-height: 40vw;
   max-width: 100%;
+}
+@media (max-width: 992px) {
+  .modal-body img {
+    max-height: 70vw;
+  }
 }
 
 /*# sourceMappingURL=productsRegister.css.map */
