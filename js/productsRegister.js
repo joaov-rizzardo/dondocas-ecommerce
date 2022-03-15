@@ -27,8 +27,6 @@ $(document).ready(() => {
         
         let files = event.target.files
 
-        console.log(files)
-
         let reader = new FileReader();
 
         // RECEBE A URL DA IMAGEM
@@ -36,33 +34,40 @@ $(document).ready(() => {
 
         reader.onload = () => {
             $image.src = reader.result
+
             $('.modal').show()
         
             // CONFIGURAÇÕES PARA O CROPPER
             const cropper = new Cropper($image, {
-                aspectRatio: 10/13,
+                aspectRatio: 3120/4160,
                 dragMode : 'move',
                 viewMode : 1,
                 highlight : false,
                 background: false,
                 crop: event => {
-                    //console.log(event.detail.x);
-                    //console.log(event.detail.y);
-                    //console.log(event.detail.width);
-                    //console.log(event.detail.height);
-                    //console.log(event.detail.rotate);
-                    //console.log(event.detail.scaleX);
-                    //console.log(event.detail.scaleY);
+                    $('#img-x').value = event.detail.x
+                    $('#img-y').value = event.detail.y
+                    $('#img-width').value = event.detail.width
+                    $('#img-height').value = event.detail.height
+                    console.log(event.detail.x);
+                    console.log(event.detail.y);
+                    console.log(event.detail.width);
+                    console.log(event.detail.height);
+                    
                 }
             })
-            console.log(cropper)
-            $('#save-img').on('click', () => {
+            
+            // EXECUTA O BLOCO DE CÓDIGO APENAS UMA VEZ
+            // EVITA DE ADICIONAR EVENTO DE ONCLICK, SEMPRE QUE O EVENTO DE ONCHANGE DO INPUT FOR DISPARADO
+
+            $('#save-img').one('click', () => {
                 cropper.destroy()
                 $('.modal').hide()
             })
-        
-
         }
+
+       
+
 
     })
 })

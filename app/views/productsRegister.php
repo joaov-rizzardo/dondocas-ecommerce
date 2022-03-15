@@ -58,6 +58,10 @@
                 <div class="item">
                     <label>Foto:</label>
                     <input class="form-control" type="file" id="img-file">
+                    <input type="hidden" id="img-x">
+                    <input type="hidden" id="img-y">
+                    <input type="hidden" id="img-width">
+                    <input type="hidden" id="img-height">
                 </div>
             </article>
 
