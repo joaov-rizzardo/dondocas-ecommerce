@@ -21,11 +21,11 @@
     <main>
         <h2>Cadastro de Produto</h2>
 
-        <section class="row" id="register">
+        <section class="row" id="product-information">
             <article class="col-md-6">
                 <div class="item">
                     <label>Nome:</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="product-name">
                 </div>
 
                 <div class="item">
@@ -35,7 +35,7 @@
 
                 <div class="item">
                     <label>Cor:</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="product-color">
                 </div>
                 
             </article>
@@ -43,14 +43,14 @@
             <article class="col-md-6">
                 <div class="item">
                     <label>Categoria:</label>
-                    <select name="" id="" class="form-control">
+                    <select id="product-category" class="form-control">
                         <option value="">Selecione uma categoria</option>
                     </select>
                 </div>
 
                 <div class="item">
                     <label>Subcategoria:</label>
-                    <select name="" id="" class="form-control">
+                    <select id="product-subcategory" class="form-control">
                         <option value="">Selecione uma subcategoria</option>
                     </select>
                 </div>
@@ -64,12 +64,18 @@
                     <input type="hidden" id="img-height">
                 </div>
             </article>
-
-            <button class="btn btn-primary" id="save">Salvar alterações</button>
         </section>
 
-        <!-- MODAL PARA CROP DAS IMAGENS -->
+        <h2>Informações de Estoque <button id="stock_add"><i class="fa-solid fa-circle-plus"></i></button></h2>
+        
 
+        <section id="stock-information">
+
+        </section>
+
+        <button class="btn btn-primary" id="save">Salvar alterações</button>
+
+        <!-- MODAL PARA CROP DAS IMAGENS -->
         <div class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

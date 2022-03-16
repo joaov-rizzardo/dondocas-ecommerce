@@ -2,16 +2,48 @@ body{
     overflow-x: hidden;
 }
 h2{
-    margin: 30px;
+    margin-top: 30px;
     font-size: 1.5em;
     text-align: center;
     border-bottom: 2px solid #000000;
     padding: 10px;
+
+    button{
+        background: none;
+        border: none;
+        i{
+            font-size: 1em;
+        }
+        
+    }
 }
 
-section#register{
+section#product-information{
     article{
         padding: 10px;
+    }
+}
+
+section#stock-information{
+    padding: 10px;
+    div.stock-item{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10px;
+
+        select{
+            width: 60%;
+        }
+
+        input{
+            width: 20%;
+        }
+
+        label{
+            font-weight: bold;
+        }
+        
     }
 }
 
@@ -23,6 +55,7 @@ section#register{
 
     label{
         width: 100px;
+        font-weight: bold;
     } 
 }
 
