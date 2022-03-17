@@ -24,10 +24,17 @@ section#product-information article {
 section#stock-information {
   padding: 10px;
 }
+section#stock-information fieldset {
+  border: 1px solid gray;
+  padding: 16px;
+  background: lightgray;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
 section#stock-information div.stock-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 10px;
 }
 section#stock-information div.stock-item select {
@@ -35,6 +42,14 @@ section#stock-information div.stock-item select {
 }
 section#stock-information div.stock-item input {
   width: 20%;
+}
+section#stock-information div.stock-item input[type=color] {
+  width: 20%;
+  border-radius: 999px;
+  padding: 0;
+}
+section#stock-information div.stock-item input#product-color-name {
+  width: 40%;
 }
 section#stock-information div.stock-item label {
   font-weight: bold;

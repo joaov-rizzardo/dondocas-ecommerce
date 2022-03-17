@@ -34,10 +34,14 @@
                 </div>
 
                 <div class="item">
-                    <label>Cor:</label>
-                    <input type="text" class="form-control" id="product-color">
+                    <label>Foto:</label>
+                    <input class="form-control" type="file" id="img-file">
+                    <input type="hidden" id="img-x">
+                    <input type="hidden" id="img-y">
+                    <input type="hidden" id="img-width">
+                    <input type="hidden" id="img-height">
                 </div>
-                
+                            
             </article>
 
             <article class="col-md-6">
@@ -54,23 +58,13 @@
                         <option value="">Selecione uma subcategoria</option>
                     </select>
                 </div>
-
-                <div class="item">
-                    <label>Foto:</label>
-                    <input class="form-control" type="file" id="img-file">
-                    <input type="hidden" id="img-x">
-                    <input type="hidden" id="img-y">
-                    <input type="hidden" id="img-width">
-                    <input type="hidden" id="img-height">
-                </div>
             </article>
         </section>
 
         <h2>Informações de Estoque <button id="stock_add"><i class="fa-solid fa-circle-plus"></i></button></h2>
         
-
+        <!-- OS ELEMENTOS SERÃO INSERIDOS COM JS -->
         <section id="stock-information">
-
         </section>
 
         <button class="btn btn-primary" id="save">Salvar alterações</button>

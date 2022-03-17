@@ -8,14 +8,12 @@ $(document).ready(() => {
     $('#save').on('click', () => {
         const productName = document.querySelector('#product-name').value
         const productValue = document.querySelector('#product-value').value
-        const productColor = document.querySelector('#product-color').value
         const productCategory = document.querySelector('#product-category'.value)
         const productSubCategory = document.querySelector('#product-subcategory').value
 
         let registerData = {
                 productName : productName,
                 productValue : productValue,
-                productColor : productColor,
                 productCategory : productCategory,
                 productSubCategory : productSubCategory
         };
@@ -24,7 +22,6 @@ $(document).ready(() => {
         const validationArray = [
             productName,
             productValue,
-            productColor,
             productCategory,
             productSubCategory
         ]
@@ -109,20 +106,47 @@ $(document).ready(() => {
         }
     })
 
-    // FLUXO PARA ADICIONAR LINHA DE ESTOQUE
-    $('#stock_add').on('click', () => {
-        const $div = document.createElement('div')
-        $div.className = 'stock-item'
+    //==================================================//
+    //       FLUXO PARA ADICIONAR LINHA DE ESTOQUE      //
+    //==================================================//
 
+    $('#stock_add').on('click', () => {
+        const $fieldset = document.createElement('fieldset')
+
+        const $divSize = document.createElement('div')
+        $divSize.className = 'stock-item'
+
+        const $divColor = document.createElement('div')
+        $divColor.className = 'stock-item'
+
+        const $labelColorName = document.createElement('label')
+        $labelColorName.innerHTML = "Cor:"
+        
+        const $inputColorName = document.createElement('input')
+        $inputColorName.type = 'text'
+
+        $inputColorName.id = 'product-color-name'
+        $inputColorName.className = 'form-control'
+
+        const $labelColor = document.createElement('label')
+        $labelColor.innerHTML = 'Selecione a cor'
+        
+        const $inputColor = document.createElement('input')
+        $inputColor.type = 'color'
+        $inputColor.id = 'product-color'
+        $inputColor.className = 'form-control'
+        
         const $labelSize = document.createElement('label')
         $labelSize.innerHTML = 'Tamanho:'
 
         const $selectSizes = document.createElement('select')
         $selectSizes.className = 'form-control'
+        $selectSizes.id = 'product-size'
+        
 
         const $defaultOption = document.createElement('option')
         $defaultOption.value = ''
-        $defaultOption.innerHTML = 'Selecione um tamanho'
+        $defaultOption.innerHTML = 'Tamanho único'
         $defaultOption.selected = 'selected'
 
         $selectSizes.appendChild($defaultOption)
@@ -133,16 +157,27 @@ $(document).ready(() => {
 
         const $inputAmount = document.createElement('input')
         $inputAmount.type = 'number'
+        $inputAmount.className = 'form-control'
+        $inputAmount.id = 'product-amount'
 
-        // INCLUINDO TODOS OS ELEMENTOS CRIADOS NA DIV PRINCIPAL (.stock-item)
-        $div.appendChild($labelSize)
-        $div.appendChild($selectSizes)
-        $div.appendChild($labelAmount)
-        $div.appendChild($inputAmount)
+        // INCLUINDO TODOS OS ELEMENTOS RELACIONADOS A DIV COLOR
+        $divColor.appendChild($labelColorName)
+        $divColor.appendChild($inputColorName)
+        $divColor.appendChild($labelColor)
+        $divColor.appendChild($inputColor)
 
+        // INCLUINDO TODOS OS ELEMENTOS RELACIONADOS A DIV SIZE
+        $divSize.appendChild($labelSize)
+        $divSize.appendChild($selectSizes)
+        $divSize.appendChild($labelAmount)
+        $divSize.appendChild($inputAmount)
+
+        //  INCLUINDO AS DIVS AO FIELD SET
+        $fieldset.appendChild($divColor)
+        $fieldset.appendChild($divSize)
         // INCLUINDO A DIV NO HTML
         const $sectionStock = document.querySelector('#stock-information')
-        $sectionStock.appendChild($div)
+        $sectionStock.appendChild($fieldset)
 
 
     })
