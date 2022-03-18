@@ -56,7 +56,16 @@ $(document).ready(() => {
             const productImage = reader.result
             registerData.productImage = productImage
 
-            console.log(registerData)
+            // OBTEM E VERIFICA SE EXISTE AS INFORMAÇÕES DE ESTOQUE
+            const $stockInformation = document.querySelectorAll('.fieldset-stock-item')
+            if($stockInformation){
+                //console.log(stockInformation)
+                $stockInformation.forEach($stock => {
+                    console.log($stock.querySelector('#product-color-name').value)
+                })
+                
+            }
+            
             
         }
        
@@ -112,6 +121,7 @@ $(document).ready(() => {
 
     $('#stock_add').on('click', () => {
         const $fieldset = document.createElement('fieldset')
+        $fieldset.className = "fieldset-stock-item"
 
         const $divSize = document.createElement('div')
         $divSize.className = 'stock-item'
