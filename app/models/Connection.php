@@ -1,7 +1,7 @@
 <?php
     class Connection {
         private $host = 'localhost';
-        private $dbname = 'dondocas';
+        private $dbname = 'bd_dondocas';
         private $user = 'root';
         private $pass = '';
 
@@ -21,4 +21,3 @@
             }
         }
     }
-?>

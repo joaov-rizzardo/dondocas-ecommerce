@@ -11,15 +11,15 @@ $(document).ready(() => {
         const productCategory = document.querySelector('#product-category'.value)
         const productSubCategory = document.querySelector('#product-subcategory').value
 
-        let registerData = {
-                productName : productName,
-                productValue : productValue,
-                productCategory : productCategory,
-                productSubCategory : productSubCategory
+        const registerData = {
+                product_name : productName,
+                product_value : productValue,
+                category_key : productCategory,
+                subcategory_key : productSubCategory
         };
         
         // ARRAY QUE SERÁ PERCORRIDO PARA REALIZAR A VALIDAÇÃO DOS CAMPOS
-        const validationArray = [
+        let validationArray = [
             productName,
             productValue,
             productCategory,
@@ -54,20 +54,25 @@ $(document).ready(() => {
 
         reader.onload = () => {
             const productImage = reader.result
-            registerData.productImage = productImage
+            registerData.product_photo = productImage
 
             // ARRAY QUE SERÁ ARMAZENADO AS INFORMAÇÕES DE ESTOQUE
-            let stockItens = Array();
+            let stockItems = Array();
 
             // OBTEM E VERIFICA SE EXISTE AS INFORMAÇÕES DE ESTOQUE
             const $stockInformation = document.querySelectorAll('.fieldset-stock-item')
             if($stockInformation){
-                //console.log(stockInformation)
                 $stockInformation.forEach($stock => {
                     const colorName = $stock.querySelector('.product-color-name').value
                     const color = $stock.querySelector('.product-color').value
                     const size = $stock.querySelector('.product-size').value
                     const amount = $stock.querySelector('.product-amount').value
+
+                    // VERIFICA SE OS CAMPOS RELACIONADOS A ESTOQUE ESTÃO VAZIOS
+                    if(!colorName.length || !color.length || !size.length || !amount.length){
+                        stopCondition = true
+                        return false
+                    }
 
                     const stockObj = {
                         colorName : colorName,
@@ -76,13 +81,24 @@ $(document).ready(() => {
                         amount : amount
                     }
 
-                    stockItens.push(stockObj)
+                    stockItems.push(stockObj)
                 })
-                
-                console.log(stockItens)
+
+                if(stopCondition){
+                    alert('Verifique se todos os campos relacionados a estoque foram preenchidos')
+                    return
+                }
             }
-            
-            
+
+            registerData.stock = stockItems
+
+            // PENSAR COMO PASSAR O PATHBASE
+            /*
+            axios.get('../../app/controllers/productController.php')
+            .then(response => {
+                console.log(response)
+            })
+            */
         }
        
     })

@@ -1,30 +1,25 @@
 <?php
     require_once './app/models/routes.php';
-    require_once './app/models/Connection.php';
+    require_once './app/models/connection.php';
 
-    try{
+    $connection = new Connection();
 
-        $connection = new Connection();
-
-        $db = $connection->connect();
+    $db = $connection->connect();
         
-        $url = isset($_GET['url']) ? $_GET['url'] : '';
-            
-        $route = new Routes($url);
-    
-        // RECUPERA O ARQUIVO REFERENTE A ROTA ACESSADA
-        $path = $route->getFile();
-    
-        if(!$path){
-            throw new Exception("This route doensn't exist on the server", 1);
-        }
-    
-        // RECUPERA O PATH BASE PARA REFERENCIAR ARQUIVOS NO PROJETO
-        $pathBase = $route->getPathBase();
+    $url = isset($_GET['url']) ? $_GET['url'] : '';
+        
+    $route = new Routes($url);
 
-    }catch(PDOException $e){
-        echo '<p>'.$e->getMessage().'</p>';
+    // RECUPERA O ARQUIVO REFERENTE A ROTA ACESSADA
+    $path = $route->getFile();
+
+    if(!$path){
+        throw new Exception("This route doensn't exist on the server", 1);
     }
+
+    // RECUPERA O PATH BASE PARA REFERENCIAR ARQUIVOS NO PROJETO
+    $pathBase = $route->getPathBase();
+
 
 ?>
 
