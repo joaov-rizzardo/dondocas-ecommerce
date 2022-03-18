@@ -1,19 +1,31 @@
 <?php
     require_once './app/models/routes.php';
-    
-    $url = isset($_GET['url']) ? $_GET['url'] : '';
+    require_once './app/models/Connection.php';
+
+    try{
+
+        $connection = new Connection();
+
+        $db = $connection->connect();
         
-    $route = new Routes($url);
+        $url = isset($_GET['url']) ? $_GET['url'] : '';
+            
+        $route = new Routes($url);
+    
+        // RECUPERA O ARQUIVO REFERENTE A ROTA ACESSADA
+        $path = $route->getFile();
+    
+        if(!$path){
+            throw new Exception("This route doensn't exist on the server", 1);
+        }
+    
+        // RECUPERA O PATH BASE PARA REFERENCIAR ARQUIVOS NO PROJETO
+        $pathBase = $route->getPathBase();
 
-    // RECUPERA O ARQUIVO REFERENTE A ROTA ACESSADA
-    $path = $route->getFile();
-
-    if(!$path){
-        throw new Exception("This route doensn't exist on the server", 1);
+    }catch(PDOException $e){
+        echo '<p>'.$e->getMessage().'</p>';
     }
 
-    // RECUPERA O PATH BASE PARA REFERENCIAR ARQUIVOS NO PROJETO
-    $pathBase = $route->getPathBase();
 ?>
 
 <title>Dondocas - Moda Feminina</title>

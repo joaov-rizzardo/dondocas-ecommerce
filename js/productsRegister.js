@@ -56,14 +56,30 @@ $(document).ready(() => {
             const productImage = reader.result
             registerData.productImage = productImage
 
+            // ARRAY QUE SERÁ ARMAZENADO AS INFORMAÇÕES DE ESTOQUE
+            let stockItens = Array();
+
             // OBTEM E VERIFICA SE EXISTE AS INFORMAÇÕES DE ESTOQUE
             const $stockInformation = document.querySelectorAll('.fieldset-stock-item')
             if($stockInformation){
                 //console.log(stockInformation)
                 $stockInformation.forEach($stock => {
-                    console.log($stock.querySelector('#product-color-name').value)
+                    const colorName = $stock.querySelector('.product-color-name').value
+                    const color = $stock.querySelector('.product-color').value
+                    const size = $stock.querySelector('.product-size').value
+                    const amount = $stock.querySelector('.product-amount').value
+
+                    const stockObj = {
+                        colorName : colorName,
+                        color : color,
+                        size : size,
+                        amount : amount
+                    }
+
+                    stockItens.push(stockObj)
                 })
                 
+                console.log(stockItens)
             }
             
             
@@ -134,25 +150,20 @@ $(document).ready(() => {
         
         const $inputColorName = document.createElement('input')
         $inputColorName.type = 'text'
-
-        $inputColorName.id = 'product-color-name'
-        $inputColorName.className = 'form-control'
+        $inputColorName.className = 'form-control product-color-name'
 
         const $labelColor = document.createElement('label')
         $labelColor.innerHTML = 'Selecione a cor'
         
         const $inputColor = document.createElement('input')
         $inputColor.type = 'color'
-        $inputColor.id = 'product-color'
-        $inputColor.className = 'form-control'
+        $inputColor.className = 'form-control product-color'
         
         const $labelSize = document.createElement('label')
         $labelSize.innerHTML = 'Tamanho:'
 
         const $selectSizes = document.createElement('select')
-        $selectSizes.className = 'form-control'
-        $selectSizes.id = 'product-size'
-        
+        $selectSizes.className = 'form-control product-size'
 
         const $defaultOption = document.createElement('option')
         $defaultOption.value = ''
@@ -167,8 +178,7 @@ $(document).ready(() => {
 
         const $inputAmount = document.createElement('input')
         $inputAmount.type = 'number'
-        $inputAmount.className = 'form-control'
-        $inputAmount.id = 'product-amount'
+        $inputAmount.className = 'form-control product-amount'
 
         // INCLUINDO TODOS OS ELEMENTOS RELACIONADOS A DIV COLOR
         $divColor.appendChild($labelColorName)
