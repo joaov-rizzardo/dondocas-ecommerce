@@ -1,5 +1,5 @@
 $(document).ready(() => {
-
+    
     // AQUI DEVE FICAR TODAS AS MASCARAS UTILIZADAS NA PÁGINA
     $('#product-value').mask('00000,00', {
         reverse: true
@@ -11,7 +11,7 @@ $(document).ready(() => {
         const productCategory = document.querySelector('#product-category'.value)
         const productSubCategory = document.querySelector('#product-subcategory').value
 
-        const registerData = {
+        const product = {
                 product_name : productName,
                 product_value : productValue,
                 category_key : productCategory,
@@ -54,7 +54,7 @@ $(document).ready(() => {
 
         reader.onload = () => {
             const productImage = reader.result
-            registerData.product_photo = productImage
+            product.product_photo = productImage
 
             // ARRAY QUE SERÁ ARMAZENADO AS INFORMAÇÕES DE ESTOQUE
             let stockItems = Array();
@@ -90,15 +90,16 @@ $(document).ready(() => {
                 }
             }
 
-            registerData.stock = stockItems
+            product.stock = stockItems
 
-            // PENSAR COMO PASSAR O PATHBASE
-            /*
-            axios.get('../../app/controllers/productController.php')
-            .then(response => {
-                console.log(response)
+            axios.post(`${pathBase}/app/controllers/productController.php`, {
+                'action' : 'saveProduct'
+                //product: product
             })
-            */
+            .then(response => {
+                console.log(response.data)
+            })
+            
         }
        
     })

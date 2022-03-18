@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- pathBase para ser usado pelos arquivos JS -->
+    <script defer>
+        const pathBase = '<?=$pathBase?>'
+    </script>
+
     <!-- CROPPER -->
     <script src="<?=$pathBase?>node_modules/cropperjs/dist/cropper.js"></script>
     <link rel="stylesheet" href="<?=$pathBase?>node_modules/cropperjs/dist/cropper.css">
@@ -18,6 +23,7 @@
 
     <link rel="stylesheet" href="<?=$pathBase?>css/productsRegister.css">
     <script defer src="<?=$pathBase?>js/productsRegister.js"></script>
+
 </head>
 
 <body>
