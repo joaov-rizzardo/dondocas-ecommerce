@@ -1,3 +1,12 @@
+<?php
+    require_once __DIR__."/../models/product.php";
+
+    $product = new Product();
+    
+    $categories = $product->getCategories();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -58,6 +67,9 @@
                     <label>Categoria:</label>
                     <select id="product-category" class="form-control">
                         <option value="">Selecione uma categoria</option>
+                        <?php foreach($categories as $category){ ?>
+                            <option value="<?=$category['category_key']?>"><?=$category['category_name']?></option>
+                        <?php } ?>
                     </select>
                 </div>
 

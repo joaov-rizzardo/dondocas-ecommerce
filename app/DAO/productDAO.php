@@ -1,5 +1,5 @@
 <?php
-    require_once '../services/dbConnection.php'; 
+    require_once __DIR__.'/../services/dbConnection.php'; 
 
     class ProductDAO{
 
@@ -52,6 +52,74 @@
             $stmt->bindParam(':product_amount', $stock['product_amount']);
 
             $result = $stmt->execute();
+
+            return $result;
+        }
+
+        public function getCategories(){
+            global $db;
+
+            $query = "SELECT
+                            category_key,
+                            category_name
+                        FROM
+                            product_category";
+
+            $stmt = $db->query($query);
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
+        // OBTEM AS SUBCATEGORIAS, DEVE RECEBER O CÓDIGO DA CATEGORIA PRINCIPAL
+        public function getSubCategories($category_key){
+
+            global $db;
+
+            $query = "SELECT
+                            subcategory_key,
+                            subcategory_name
+                        FROM
+                            product_subcategory
+                        WHERE
+                            category_key = :category_key";
+            
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':category_key', $category_key);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if(!$result){
+                return false;
+            }
+
+            return $result;
+        }
+
+        // OBTEM OS TAMANHOS, DEVE RECEBER O CÓDIGO DA SUBCATEGORIA
+        public function getSubcategorySizes($subcategory_key){
+            
+            global $db;
+
+            $query = "SELECT
+                        size_key,
+                        size_name
+                    FROM
+                        product_size
+                    WHERE
+                        subcategory_key = :subcategory_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':subcategory_key', $subcategory_key);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if(!$result){
+                return false;
+            }
 
             return $result;
         }

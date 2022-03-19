@@ -3,12 +3,11 @@
     require_once '../models/product.php';
     
     use Gregwar\Image\Image;
-
-    //$post =  json_decode(file_get_contents('php://input'), true);
     
     $action = $_POST['action'];
 
     switch ($action) {
+        // INSERE E ATUALIZA AS INFORMAÇÕES DE PRODUTO
         case 'saveProduct':
             // OBTENDO DADOS REFERENTES A IMAGEM
             $imageX = $_POST['imageX'];
@@ -18,8 +17,8 @@
 
             try {
                 $imageName = 'img'.date('dmYHis');
-                // REALIZANDO O CROP DA IMAGEM E UPLOAD PARA A PASTA IMAGE
-                
+
+                // REALIZANDO O CROP DA IMAGEM E UPLOAD PARA A PASTA IMAGE                
                 Image::open($_FILES['image']['tmp_name'])
                         ->crop($imageX, $imageY, $imageWidth, $imageHeight)
                         ->save("../../img/{$imageName}.jpg");
@@ -42,11 +41,33 @@
 
                 $product = new Product();
                 $product->handleCreateProduct($productData);
-                $product->saveProduct();
+                $response = $product->saveProduct();
+                
+                echo $response;
                 
             }catch (Exception $e) {
                 echo $e->getMessage();
             }
+        break;
+        //OBTEM AS SUBCATEGORIAS COM BASE NO CÓDIGO DE CATEGORIA INFORMADO
+        case 'getSubcategories':
+            $category_key = $_POST['category_key'];
+
+            $product = new Product();
+
+            $subCategories = $product->getSubCategories($category_key);
+
+            echo json_encode($subCategories);
+        break;
+        // OBTEM OS TAMANHOS COM BASE NA SUBCATEGORIA INFORMADA
+        case 'getSubcategorySizes':
+            $subcategory_key = $_POST['subcategory_key'];
+
+            $product = new Product();
+
+            $sizes = $product->getSubcategorySizes($subcategory_key);
+
+            echo json_encode($sizes);
         break;
     }
 ?>

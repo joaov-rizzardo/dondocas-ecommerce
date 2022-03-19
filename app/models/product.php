@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../DAO/productDAO.php';
+    require_once __DIR__.'/../DAO/productDAO.php';
     
     class Product extends ProductDAO{
         private $product_key;
