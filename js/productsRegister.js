@@ -8,99 +8,110 @@ $(document).ready(() => {
     $('#save').on('click', () => {
         const productName = document.querySelector('#product-name').value
         const productValue = document.querySelector('#product-value').value
-        const productCategory = document.querySelector('#product-category'.value)
+        const productCategory = document.querySelector('#product-category').value
         const productSubCategory = document.querySelector('#product-subcategory').value
+        const imageX = document.querySelector('#img-x').value
+        const imageY = document.querySelector('#img-y').value
+        const imageWidth = document.querySelector('#img-width').value
+        const imageHeight = document.querySelector('#img-height').value
 
-        const product = {
-                product_name : productName,
-                product_value : productValue,
-                category_key : productCategory,
-                subcategory_key : productSubCategory
-        };
+
+        // DEVERÁ SER ENVIADO EM UM FORMDATA POR CONTA DO UPLOAD DA IMAGEM
+        const formData = new FormData();
+        formData.append('product_name', productName)
+        formData.append('product_value', productValue)
+        formData.append('category_key', productCategory)
+        formData.append('subcategory_key', productSubCategory)
+        formData.append('imageX', imageX)
+        formData.append('imageY', imageY)
+        formData.append('imageWidth', imageWidth)
+        formData.append('imageHeight', imageHeight)
         
         // ARRAY QUE SERÁ PERCORRIDO PARA REALIZAR A VALIDAÇÃO DOS CAMPOS
         let validationArray = [
             productName,
             productValue,
             productCategory,
-            productSubCategory
+            productSubCategory,
+            imageX,
+            imageY,
+            imageWidth,
+            imageHeight
         ]
 
         const files = document.querySelector('#img-file').files
         
         // VALIDA SE FOI SELECIONADA UMA IMAGEM
         if(files.length == 0){
-            //alert('Nenhuma imagem foi selecionada')
-            //return
+            alert('Nenhuma imagem foi selecionada')
+            return
         }
+
+        const image = files[0]
+        formData.append('image', image)
 
         // REALIZA A VALIDAÇÃO DOS CAMPOS
         let stopCondition = false // VARIAVEL QUE IRÁ RECEBER A CONDIÇÃO DE PARADA -  SE TRUE DEVE INTERROMPER A EXECUÇÃO DA FUNÇÃO
         validationArray.every(field => {
             if(field == ''){
-                //alert('Verifique se todos os campos foram preenchidos')
-                //stopCondition = true
-                //return false
+                alert('Verifique se todos os campos foram preenchidos')
+                stopCondition = true
+                return false
             }
         })
 
         if(stopCondition){
             return
         }
-        
-        let reader = new FileReader();
 
-        reader.readAsDataURL(files[0])
+        // ARRAY QUE SERÁ ARMAZENADO AS INFORMAÇÕES DE ESTOQUE
+        let stockItems = Array();
 
-        reader.onload = () => {
-            const productImage = reader.result
-            product.product_photo = productImage
+        // OBTEM E VERIFICA SE EXISTE AS INFORMAÇÕES DE ESTOQUE
+        const $stockInformation = document.querySelectorAll('.fieldset-stock-item')
+        if($stockInformation){
+            $stockInformation.forEach($stock => {
+                const colorName = $stock.querySelector('.product-color-name').value
+                const color = $stock.querySelector('.product-color').value
+                const size = $stock.querySelector('.product-size').value
+                const amount = $stock.querySelector('.product-amount').value
 
-            // ARRAY QUE SERÁ ARMAZENADO AS INFORMAÇÕES DE ESTOQUE
-            let stockItems = Array();
-
-            // OBTEM E VERIFICA SE EXISTE AS INFORMAÇÕES DE ESTOQUE
-            const $stockInformation = document.querySelectorAll('.fieldset-stock-item')
-            if($stockInformation){
-                $stockInformation.forEach($stock => {
-                    const colorName = $stock.querySelector('.product-color-name').value
-                    const color = $stock.querySelector('.product-color').value
-                    const size = $stock.querySelector('.product-size').value
-                    const amount = $stock.querySelector('.product-amount').value
-
-                    // VERIFICA SE OS CAMPOS RELACIONADOS A ESTOQUE ESTÃO VAZIOS
-                    if(!colorName.length || !color.length || !size.length || !amount.length){
-                        stopCondition = true
-                        return false
-                    }
-
-                    const stockObj = {
-                        colorName : colorName,
-                        color : color,
-                        size : size,
-                        amount : amount
-                    }
-
-                    stockItems.push(stockObj)
-                })
-
-                if(stopCondition){
-                    alert('Verifique se todos os campos relacionados a estoque foram preenchidos')
-                    return
+                // VERIFICA SE OS CAMPOS RELACIONADOS A ESTOQUE ESTÃO VAZIOS
+                if(!colorName.length || !color.length || !size.length || !amount.length){
+                    stopCondition = true
+                    return false
                 }
+
+                const stockObj = {
+                    product_color_name : colorName,
+                    product_color : color,
+                    size_key : size,
+                    product_amount : amount
+                }
+
+                stockItems.push(stockObj)
+            })
+
+            if(stopCondition){
+                alert('Verifique se todos os campos relacionados a estoque foram preenchidos')
+                return
             }
-
-            product.stock = stockItems
-
-            axios.post(`${pathBase}/app/controllers/productController.php`, {
-                'action' : 'saveProduct'
-                //product: product
-            })
-            .then(response => {
-                console.log(response.data)
-            })
-            
         }
+
+        const stock = JSON.stringify(stockItems)
+        formData.append('stock', stock)
+
+        // AÇÃO QUE DEVE SER REALIZADA NO CONTROLLER
+        formData.append('action', 'saveProduct')
+
+        $.ajax({
+            url : `${pathBase}/app/controllers/productController.php`,
+            type : 'post',
+            data : formData,
+            processData: false,
+            contentType: false
+        })
+        
        
     })
 
@@ -131,10 +142,10 @@ $(document).ready(() => {
                 highlight : false,
                 background: false,
                 crop: event => {
-                    $('#img-x').value = event.detail.x
-                    $('#img-y').value = event.detail.y
-                    $('#img-width').value = event.detail.width
-                    $('#img-height').value = event.detail.height     
+                    document.querySelector('#img-x').value = event.detail.x
+                    document.querySelector('#img-y').value = event.detail.y
+                    document.querySelector('#img-width').value = event.detail.width
+                    document.querySelector('#img-height').value = event.detail.height
                 }
             })
 

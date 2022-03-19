@@ -1,8 +1,8 @@
 <?php
-    require '../DAO/productDAO.php';
 
+    require_once '../DAO/productDAO.php';
+    
     class Product extends ProductDAO{
-        
         private $product_key;
 
         private $product_name;
@@ -50,20 +50,19 @@
                 
                 $this->$key = $value;
             }
+            
         }
 
         public function saveProduct(){
             // RECUPERA UM ARRAY COM AS INFORMAÇÕES DO PRODUTO
             $productInformation = get_object_vars($this);
-
             /*
              ATRIBUI O VALOR DE ESTOQUE PARA UMA VARIAVEL E EM SEGUIDA RETIRA ELA DO ARRAY DE PRODUTOS
              SERÁ FEITA INSERÇÕES SEPARADAS
             */
 
             $stockInformation = $productInformation['stock'];
-            unset($productInformation['stock']);
-
+            unset($productInformation['stock']);            
             // SE ESTIVER SETADO PRODUCT_KEY É UM UPDATE, SE NÃO, UM INSERT
             if(isset($productInformation['product_key'])){
 
@@ -74,18 +73,19 @@
                 };
 
                 $this->product_key = $product_key;
-            }
-           
 
+            }
+            
             if(!is_array($stockInformation)){
                 return true;
             }
 
             foreach($stockInformation as $stock){
-                $this->replaceStock($stock, $this->$product_key);
+                $this->replaceStock($stock, $this->product_key);
             }
 
             return true;
+            
 
         }
             

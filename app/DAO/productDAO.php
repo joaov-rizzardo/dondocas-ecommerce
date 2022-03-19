@@ -1,10 +1,11 @@
 <?php
+    require_once '../services/dbConnection.php'; 
 
     class ProductDAO{
 
         // ESPERA UM ARRAY CONTENDO AS INFORMAÇÕE DO PRODUTO A SER INSERIDO
         // SEUS INDICES DEVEM SER IGUAIS AOS NOMES DOS CAMPOS NA TABELA
-        private function insertProduct(Array $product){
+        protected function insertProduct(Array $product){
             global $db;
 
             $query = "INSERT INTO 
@@ -14,7 +15,7 @@
                         product_value = :product_value,
                         product_photo = :product_photo,
                         category_key = :category_key,
-                        product_subcategory = :product_subcategory";
+                        subcategory_key = :subcategory_key";
             
             $stmt = $db->prepare($query);
             $stmt->bindParam(':product_name', $product['product_name']);
@@ -27,13 +28,13 @@
                 return false;
             }
 
-            $result = $stmt->getLastInsertId();
+            $result = $db->lastInsertId();
 
             return $result;
 
         }
 
-        private function replaceStock(Array $stock, $product_key){
+        protected function replaceStock(Array $stock, $product_key){
             global $db;
             
             $query = "REPLACE INTO 
@@ -46,9 +47,9 @@
             
             $stmt = $db->prepare($query);
             $stmt->bindParam(':product_key', $product_key);
-            $stmt->bindParam(':product_color_name', $product['product_color_name']);
-            $stmt->bindParam(':size_key', $product['size_key']);
-            $stmt->bindParam(':product_amount', $product['product_amount']);
+            $stmt->bindParam(':product_color_name', $stock['product_color_name']);
+            $stmt->bindParam(':size_key', $stock['size_key']);
+            $stmt->bindParam(':product_amount', $stock['product_amount']);
 
             $result = $stmt->execute();
 

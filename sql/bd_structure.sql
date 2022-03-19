@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS product_size(
 CREATE TABLE IF NOT EXISTS product(
     product_key INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(120) NOT NULL,
-    product_value DOUBLE NOT NULL,
+    product_value DECIMAL(7,2) NOT NULL,
     product_photo VARCHAR(50) NOT NULL,
     category_key INT NOT NULL,
     subcategory_key INT NOT NULL,

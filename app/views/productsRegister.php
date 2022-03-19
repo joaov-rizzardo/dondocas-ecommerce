@@ -19,7 +19,7 @@
     <script src="<?=$pathBase?>node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
     <!-- AXIOS -->
-    <script src="<?=$pathBase?>node_modules/axios/dist/axios.min.js"></script>
+    <script src="<?=$pathBase?>node_modules/axios/dist/axios.js"></script>
 
     <link rel="stylesheet" href="<?=$pathBase?>css/productsRegister.css">
     <script defer src="<?=$pathBase?>js/productsRegister.js"></script>

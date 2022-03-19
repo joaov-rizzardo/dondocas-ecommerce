@@ -1,11 +1,6 @@
 <?php
     require_once './app/models/routes.php';
-    require_once './app/models/connection.php';
-
-    $connection = new Connection();
-
-    $db = $connection->connect();
-        
+    require_once './app/services/dbConnection.php';   
     $url = isset($_GET['url']) ? $_GET['url'] : '';
         
     $route = new Routes($url);
@@ -39,6 +34,10 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 <!-- GLIDER -->
 <script src="<?=$pathBase?>node_modules/@glidejs/glide/dist/glide.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@400;700&family=Questrial&display=swap" rel="stylesheet">
+
 <!-- CONFIGS GERAIS CSS -->
 <link rel="stylesheet" href="<?=$pathBase?>css/general.css">
 
@@ -47,3 +46,40 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
     include 'app/components/fixedButtons.php';
     require_once $path;
 ?>
+
+<!-- 
+                                      /|
+                                     |\|
+                                     |||
+                                     |||
+                                     |||
+                                     |||
+                                     |||
+                                     |||
+                                  ~-[{o}]-~
+                                     |/|
+                                     |/|
+             ///~`     |\\_          `0'         =\\\\         . .
+            ,  |='  ,))\_| ~-_                    _)  \      _/_/|
+           / ,' ,;((((((    ~ \                  `~~~\-~-_ /~ (_/\
+         /' -~/~)))))))'\_   _/'                      \_  /'  D   |
+        (       (((((( ~-/ ~-/                          ~-;  /    \--_
+         ~~--|   ))''    ')  `                            `~~\_    \   )
+             :        (_  ~\           ,                    /~~-     ./
+              \        \_   )--__  /(_/)                   |    )    )|
+    ___       |_     \__/~-__    ~~   ,'      /,_;,   __--(   _/      |
+  //~~\`\    /' ~~~----|     ~~~~~~~~'        \-  ((~~    __-~        |
+((()   `\`\_(_     _-~~-\                      ``~~ ~~~~~~   \_      /
+ )))     ~----'   /      \      BY POSERLACK                 )       )
+  (         ;`~--'        :                                _-    ,;;(
+            |    `\       |                             _-~    ,;;;;)
+            |    /'`\     ;                          _-~          _/
+           /~   /    |    )                         /;;;''  ,;;:-~
+          |    /     / | /                         |;;'   ,''
+          /   /     |  \\|                         |   ,;(   
+        _/  /'       \  \_)                   .---__\_    \,--._______
+       ( )|'         (~-_|                   (;;'  ;;;~~~/' `;;|  `;;;\
+        ) `\_         |-_;;--__               ~~~----__/'    /'_______/
+        `----'       (   `~--_ ~~~;;------------~~~~~ ;;;'_/'
+                     `~~~~~~~~'~~~-----....___;;;____---~~
+-->
