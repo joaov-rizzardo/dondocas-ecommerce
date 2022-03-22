@@ -23,8 +23,20 @@
 
         private $stock;
 
-        public function __construct(){
+        // SE PASSADO O PRODUCT_KEY COMO PARAMETRO, MONTA O OBJETO COM AS INFORMAÇÕES DO RESPECTIVO PRODUTO
+        public function __construct($product_key = false){
+            if(!$product_key){
+                return false;
+            }
 
+            $product = $this->getProduct($product_key);
+            $product['stock'] = $this->getProductStock($product_key);
+            
+            if(!$product){
+                return false;
+            }
+
+            $this->handleCreateProduct($product);
         }
 
         public function __get($attribute){

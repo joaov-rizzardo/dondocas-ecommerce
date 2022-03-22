@@ -268,7 +268,7 @@ $(document).ready(() => {
     })
 
     //==========================================================================
-    //                   FLUXO PARA BUSCAr AS SUBCATEGORIAS
+    //                   FLUXO PARA BUSCAR AS SUBCATEGORIAS
     //==========================================================================
     $('#product-category').on('change', event => {
         const categoryKey = event.target.value
@@ -289,7 +289,6 @@ $(document).ready(() => {
             }
         }).responseText
 
-        console.log(response)
         if (response == 'false') {
             return;
         }
@@ -302,12 +301,15 @@ $(document).ready(() => {
 
             productSubCategory.appendChild($option)
         })
+
+        const subcategory_key = document.querySelector('#product-subcategory').value
+        changeSelectSizes(subcategory_key)
     })
 
     //=========================================================================
     //          FLUXO PARA EVENTO DE CHANGE NO SELECT DE SUBCATEGORIAS
     //=========================================================================
-    $('#product-subcategory').on('click', event => {
+    $('#product-subcategory').on('change', event => {
 
         const subcategory_key = event.target.value
 
@@ -317,10 +319,49 @@ $(document).ready(() => {
 })
 
 function changeSelectSizes(subcategory_key) {
-    let productSize = document.querySelectorAll('.product-size')
+    
+    // RECEBE A NODELIST COM OS SELECTS DE TAMANHO
+    let $productSizes = document.querySelectorAll('.product-size')
 
-    if (!productSize.length) {
+    if (!$productSizes.length) {
         return
     }
+
+    // BUSCA OS TAMANHOS PARA A SUBCATEGORIA SELECIONADA
+    let response = $.ajax({
+        url: `${pathBase}/app/controllers/productController.php`,
+        type: 'post',
+        async: false,
+        data: {
+            action: 'getSubcategorySizes',
+            subcategory_key: subcategory_key
+        },
+        error: () => {
+            alert('Ocorreu um erro inesperado')
+        }
+    }).responseText
+
+    if(!response){
+        return false
+    }
+
+    const subcategorySizes = JSON.parse(response)
+
+    //==========================================================================
+    //              PERCORRE OS SELECTS DE TAMANHO E CRIA 
+    //      AS OPÇÕES COM BASE NOS DADOS RETORNADOS DA REQUISIÇÃO
+    //==========================================================================
+    $productSizes.forEach(item => {
+        item.innerHTML = '';
+        
+        subcategorySizes.map(size => {
+            const option = document.createElement('option')
+            option.value = size.size_key
+            option.innerHTML = size.size_name
+            item.appendChild(option)
+        })
+    })
+
+    
 }
 

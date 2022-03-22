@@ -1,7 +1,13 @@
 <?php
     require_once __DIR__."/../models/product.php";
 
-    $product = new Product();
+    $product_key = false;
+
+    if(isset($_GET['product_key']) && !empty($_GET['product_key'])){
+        $product_key = $_GET['product_key'];
+    }
+
+    $product = new Product($product_key);
     
     $categories = $product->getCategories();
 

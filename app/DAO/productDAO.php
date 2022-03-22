@@ -3,6 +3,61 @@
 
     class ProductDAO{
 
+        protected function getProduct($product_key){
+            global $db;
+
+            $query = "SELECT
+                        product_key,
+                        product_name,
+                        category_key,
+                        subcategory_key,
+                        product_value,
+                        product_photo,
+                        product_promotion,
+                        product_promotion_value,
+                        product_date
+                    FROM
+                        product
+                    WHERE
+                        product_key = :product_key";
+            
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_key', $product_key);
+
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($result){
+                return $result;
+            }
+
+        }
+
+        protected function getProductStock($product_key){
+            global $db;
+
+            $query = "SELECT
+                        product_key,
+                        product_color_name,
+                        product_amount,
+                        size_key
+                    FROM
+                        product_stock
+                    WHERE product_key = :product_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_key', $product_key);
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if($result){
+                return $result;
+            }
+        }
+
         // ESPERA UM ARRAY CONTENDO AS INFORMAÇÕE DO PRODUTO A SER INSERIDO
         // SEUS INDICES DEVEM SER IGUAIS AOS NOMES DOS CAMPOS NA TABELA
         protected function insertProduct(Array $product){
