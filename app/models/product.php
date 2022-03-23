@@ -65,6 +65,10 @@
             
         }
 
+        public function getObjectVars(){
+            return get_object_vars($this);
+        }
+
         public function saveProduct(){
             // RECUPERA UM ARRAY COM AS INFORMAÇÕES DO PRODUTO
             $productInformation = get_object_vars($this);

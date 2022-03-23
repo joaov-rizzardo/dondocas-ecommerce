@@ -48,6 +48,7 @@
             }catch (Exception $e) {
                 echo $e->getMessage();
             }
+            
         break;
         //OBTEM AS SUBCATEGORIAS COM BASE NO CÓDIGO DE CATEGORIA INFORMADO
         case 'getSubcategories':

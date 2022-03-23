@@ -1,16 +1,25 @@
 <?php
     require_once __DIR__."/../models/product.php";
 
-    $product_key = false;
-
+    $productArray = Array();
+    
     if(isset($_GET['product_key']) && !empty($_GET['product_key'])){
+
         $product_key = $_GET['product_key'];
+
+        $product = new Product($product_key);
+        
+        // RECUPERA OS ATRIBUTOS DO PRODUTO EM FORMATO DE ARRAY
+        $productArray = $product->getObjectVars();
+        
+    }else{
+        $product = new Product();
     }
 
-    $product = new Product($product_key);
-    
-    $categories = $product->getCategories();
 
+    $categories = $product->getCategories();
+    $subcategories = $product->getSubcategories($product->__get('category_key'));
+    $sizes = $product->getSubcategorySizes($product->__get('subcategory_key'));
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +58,16 @@
             <article class="col-md-6">
                 <div class="item">
                     <label>Nome:</label>
-                    <input type="text" class="form-control" id="product-name">
+                    <input type="text" class="form-control" id="product-name" value="<?=$productArray['product_name']?>">
                 </div>
 
                 <div class="item">
                     <label>Valor:</label>
-                    <input type="text" class="form-control" id="product-value" placeholder="0000,00">
+                    <input type="text" 
+                           class="form-control" 
+                           id="product-value" 
+                           placeholder="0000,00" 
+                           value="<?=$productArray['product_value']?>">
                 </div>
 
                 <div class="item">
@@ -74,7 +87,12 @@
                     <select id="product-category" class="form-control">
                         <option value="">Selecione uma categoria</option>
                         <?php foreach($categories as $category){ ?>
-                            <option value="<?=$category['category_key']?>"><?=$category['category_name']?></option>
+                            
+                            <!-- SETA A CATEGORIA COMO SELECIONADA SE É A QUE ESTÁ GRAVADA NO PRODUTO -->
+                            <option  <?php if($category['category_key'] == $productArray['category_key']) echo "selected";?>  value="<?=$category['category_key']?>">
+                                <?=$category['category_name']?>
+                            </option>
+
                         <?php } ?>
                     </select>
                 </div>
@@ -82,7 +100,12 @@
                 <div class="item">
                     <label>Subcategoria:</label>
                     <select id="product-subcategory" class="form-control">
-                        <option value="">Selecione uma subcategoria</option>
+                        <!-- SETA A SUBCATEGORIA COMO SELECIONADA SE É A QUE ESTÁ GRAVADA NO PRODUTO -->
+                        <?php foreach($subcategories as $subcategory){ ?>
+                            <option <?php if($productArray['subcategory_key'] == $subcategory['subcategory_key']) echo "selected"; ?>  value="<?=$subcategory['subcategory_key']?>">
+                                <?=$subcategory['subcategory_name']?>
+                            </option>
+                        <?php } ?>
                     </select>
                 </div>
             </article>
@@ -90,8 +113,37 @@
 
         <h2>Informações de Estoque <button id="stock_add"><i class="fa-solid fa-circle-plus"></i></button></h2>
         
-        <!-- OS ELEMENTOS SERÃO INSERIDOS COM JS -->
+        <!-- OS ELEMENTOS SERÃO INSERIDOS COM JS OU PHP -->
         <section id="stock-information">
+            <!-- INICIO DO FOREACH -->
+            <?php foreach($productArray['stock'] as $stock) { ?>
+                <fieldset class="fieldset-stock-item">
+                    <div class="stock-item">
+                        <label>Cor:</label>
+                        <input type="text" class="form-control product-color-name" value="<?=$stock['product_color_name']?>">
+
+                        <label>Selecione a cor:</label>
+                        <input type="color" class="form-control product-color">
+                    </div>
+
+                    <div class="stock-item">
+                        <label>Tamanho:</label>
+                        <select class="form-control product-size">
+                            <?php foreach($sizes as $size) { ?>
+                                <!-- SETA O TAMANHO COMO SELECIONADO SE É O QUE ESTÁ GRAVADO NO PRODUTO -->
+                                <option <?php if($stock['size_key'] == $size['size_key']) echo "selected"; ?> value="<?=$size['size_key']?>">
+                                    <?=$size['size_name']?>
+                                </option>
+                            <?php } ?>   
+                        </select>
+
+                        <label>Quantidade:</label>
+                        <input type="text" class="form-control product-size" value="<?=$stock['product_amount']?>">
+                    </div>
+                </fieldset>
+
+            <?php } ?>
+            <!-- FIM DO FOREACH -->
         </section>
 
         <button class="btn btn-primary" id="save">Salvar alterações</button>
