@@ -22,7 +22,16 @@ section#product-information{
     article{
         padding: 10px;
     }
+
+    #photo{
+        padding: 32px;
+        img{
+            width: 40%;
+        }
+    }
 }
+
+
 
 section#stock-information{
     padding: 10px;
@@ -73,7 +82,8 @@ section#stock-information{
     label{
         width: 120px;
         font-weight: bold;
-    } 
+    }
+
 }
 
 .modal-dialog{

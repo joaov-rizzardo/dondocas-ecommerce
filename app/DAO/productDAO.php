@@ -178,5 +178,44 @@
 
             return $result;
         }
+
+        // ESPERA UM ARRAY CONTENDO AS INFORMAÇÕES DE PRODUTOS
+        // SEUS INDICES DEVEM SER IGUAIS AOS NOMES DOS CAMPOS
+        protected function updateProduct(Array $product){
+            
+            global $db;
+
+            $query = "UPDATE
+                            product
+                        SET
+                            product_name = :product_name,
+                            category_key = :category_key,
+                            subcategory_key = :subcategory_key,
+                            product_value = :product_value";
+            
+            // SÓ REALIZA A ALTERAÇÃO DA FOTO QUANDO A MESMA ESTIVER SETADA NO ARRAY
+            if(isset($product['product_photo']) && !empty($product['product_photo'])){
+                $query .= ", product_photo = :product_photo";
+            }
+
+            $query .= " WHERE product_key = :product_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_name', $product['product_name']);
+            $stmt->bindParam(':product_value', $product['product_value']);
+            $stmt->bindParam(':category_key', $product['category_key']);
+            $stmt->bindParam(':subcategory_key', $product['subcategory_key']);
+            $stmt->bindParam(':product_key', $product['product_key']);
+            
+            if(isset($product['product_photo']) && !empty($product['product_photo'])){
+                $stmt->bindParam(':product_photo', $product['product_photo']);
+            }
+
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

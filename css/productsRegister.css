@@ -20,6 +20,12 @@ h2 button i {
 section#product-information article {
   padding: 10px;
 }
+section#product-information #photo {
+  padding: 32px;
+}
+section#product-information #photo img {
+  width: 40%;
+}
 
 section#stock-information {
   padding: 10px;

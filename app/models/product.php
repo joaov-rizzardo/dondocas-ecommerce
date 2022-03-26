@@ -82,12 +82,17 @@
             // SE ESTIVER SETADO PRODUCT_KEY É UM UPDATE, SE NÃO, UM INSERT
             if(isset($productInformation['product_key'])){
 
+                if(!$this->updateProduct($productInformation)){
+                    return false;
+                };
+                
             }else{
                 $product_key = $this->insertProduct($productInformation);
                 if(!$product_key){
                     return false;
                 };
 
+                // ATRIBUI O ID INSERIDO AO OBJETO DE PRODUTO
                 $this->product_key = $product_key;
 
             }

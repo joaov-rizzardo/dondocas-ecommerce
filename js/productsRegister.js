@@ -22,10 +22,12 @@ $(document).ready(() => {
         formData.append('product_value', productValue)
         formData.append('category_key', productCategory)
         formData.append('subcategory_key', productSubCategory)
-        formData.append('imageX', imageX)
-        formData.append('imageY', imageY)
-        formData.append('imageWidth', imageWidth)
-        formData.append('imageHeight', imageHeight)
+
+        const productKey = document.querySelector('#product_key').value
+
+        if(productKey.length){
+            formData.append('product_key', productKey)
+        }
 
         // ARRAY QUE SERÁ PERCORRIDO PARA REALIZAR A VALIDAÇÃO DOS CAMPOS
         let validationArray = [
@@ -33,22 +35,34 @@ $(document).ready(() => {
             productValue,
             productCategory,
             productSubCategory,
-            imageX,
-            imageY,
-            imageWidth,
-            imageHeight
         ]
 
         const files = document.querySelector('#img-file').files
 
         // VALIDA SE FOI SELECIONADA UMA IMAGEM
-        if (files.length == 0) {
+        if (files.length == 0 && !productKey.length) {
             alert('Nenhuma imagem foi selecionada')
             return
         }
 
-        const image = files[0]
-        formData.append('image', image)
+        if(files.length > 0){
+
+            const image = files[0]
+
+            // ATRIBUI OS VALORES REFERENTES A IMAGEM NO FORMDATA
+            formData.append('image', image)
+            formData.append('imageX', imageX)
+            formData.append('imageY', imageY)
+            formData.append('imageWidth', imageWidth)
+            formData.append('imageHeight', imageHeight)
+
+            // ATRIBUÍ AS POSIÇÕES DA IMAGEM AO ARRAY DE VALIDAÇÃ
+            validationArray.push(imageX)
+            validationArray.push(imageY)
+            validationArray.push(imageWidth)
+            validationArray.push(imageHeight)
+        }
+        
 
         // REALIZA A VALIDAÇÃO DOS CAMPOS
         let stopCondition = false // VARIAVEL QUE IRÁ RECEBER A CONDIÇÃO DE PARADA -  SE TRUE DEVE INTERROMPER A EXECUÇÃO DA FUNÇÃO

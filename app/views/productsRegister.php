@@ -1,21 +1,18 @@
 <?php
     require_once __DIR__."/../models/product.php";
-
-    $productArray = Array();
     
     if(isset($_GET['product_key']) && !empty($_GET['product_key'])){
 
         $product_key = $_GET['product_key'];
 
         $product = new Product($product_key);
-        
-        // RECUPERA OS ATRIBUTOS DO PRODUTO EM FORMATO DE ARRAY
-        $productArray = $product->getObjectVars();
-        
+           
     }else{
         $product = new Product();
     }
 
+    // RECUPERA OS ATRIBUTOS DO PRODUTO EM FORMATO DE ARRAY
+    $productArray = $product->getObjectVars();
 
     $categories = $product->getCategories();
     $subcategories = $product->getSubcategories($product->__get('category_key'));
@@ -56,6 +53,7 @@
 
         <section class="row" id="product-information">
             <article class="col-md-6">
+                <input type="hidden" id="product_key" value="<?=$productArray['product_key']?>">
                 <div class="item">
                     <label>Nome:</label>
                     <input type="text" class="form-control" id="product-name" value="<?=$productArray['product_name']?>">
@@ -78,6 +76,13 @@
                     <input type="hidden" id="img-width">
                     <input type="hidden" id="img-height">
                 </div>
+
+                <?php if(isset($productArray['product_photo'])) { ?>
+                <div id="photo">
+                    <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
+                </div>
+                <?php } ?>
+                
                             
             </article>
 
@@ -115,7 +120,8 @@
         
         <!-- OS ELEMENTOS SERÃO INSERIDOS COM JS OU PHP -->
         <section id="stock-information">
-            <!-- INICIO DO FOREACH -->
+            <?php if(isset($productArray['stock'])) { ?>
+                <!-- INICIO DO FOREACH -->
             <?php foreach($productArray['stock'] as $stock) { ?>
                 <fieldset class="fieldset-stock-item">
                     <div class="stock-item">
@@ -138,11 +144,11 @@
                         </select>
 
                         <label>Quantidade:</label>
-                        <input type="text" class="form-control product-size" value="<?=$stock['product_amount']?>">
+                        <input type="text" class="form-control product-amount" value="<?=$stock['product_amount']?>">
                     </div>
                 </fieldset>
 
-            <?php } ?>
+            <?php }} ?>
             <!-- FIM DO FOREACH -->
         </section>
 
