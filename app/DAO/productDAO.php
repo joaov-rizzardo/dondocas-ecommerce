@@ -38,8 +38,10 @@
             global $db;
 
             $query = "SELECT
+                        stock_key,
                         product_key,
                         product_color_name,
+                        product_color,
                         product_amount,
                         size_key
                     FROM
@@ -89,22 +91,52 @@
 
         }
 
-        protected function replaceStock(Array $stock, $product_key){
+        protected function insertStock(Array $stock, $product_key){
             global $db;
             
-            $query = "REPLACE INTO 
+            $query = "INSERT INTO 
                         product_stock
                     SET
                         product_key = :product_key,
                         product_color_name = :product_color_name,
                         size_key = :size_key,
-                        product_amount = :product_amount";
+                        product_amount = :product_amount,
+                        product_color = :product_color";
             
             $stmt = $db->prepare($query);
             $stmt->bindParam(':product_key', $product_key);
             $stmt->bindParam(':product_color_name', $stock['product_color_name']);
             $stmt->bindParam(':size_key', $stock['size_key']);
             $stmt->bindParam(':product_amount', $stock['product_amount']);
+            $stmt->bindParam(':product_color', $stock['product_color']);
+
+            $result = $stmt->execute();
+
+            return $result;
+        }
+
+        
+        protected function updateStock(Array $stock, $product_key){
+            global $db;
+            
+            $query = "UPDATE
+                        product_stock
+                    SET
+                        product_key = :product_key,
+                        product_color_name = :product_color_name,
+                        size_key = :size_key,
+                        product_amount = :product_amount,
+                        product_color = :product_color
+                    WHERE
+                        stock_key = :stock_key";
+            
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_key', $stock_key);
+            $stmt->bindParam(':product_key', $product_key);
+            $stmt->bindParam(':product_color_name', $stock['product_color_name']);
+            $stmt->bindParam(':size_key', $stock['size_key']);
+            $stmt->bindParam(':product_amount', $stock['product_amount']);
+            $stmt->bindParam(':product_color', $stock['product_color']);
 
             $result = $stmt->execute();
 

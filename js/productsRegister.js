@@ -6,6 +6,7 @@ $(document).ready(() => {
     })
 
     $('#save').on('click', () => {
+
         const productName = document.querySelector('#product-name').value
         const productValue = document.querySelector('#product-value').value
         const productCategory = document.querySelector('#product-category').value
@@ -101,6 +102,15 @@ $(document).ready(() => {
                     product_color: color,
                     size_key: size,
                     product_amount: amount
+                }
+
+                const $stockKey = $stock.querySelector('.stock_key')
+
+                if($stockKey){
+
+                    if($stockKey.value != ''){
+                        stockObj.stock_key = $stockKey.value
+                    }          
                 }
 
                 stockItems.push(stockObj)

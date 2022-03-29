@@ -102,7 +102,15 @@
             }
 
             foreach($stockInformation as $stock){
-                $this->replaceStock($stock, $this->product_key);
+
+                echo json_encode($stock);
+                if(isset($stock['stock_key']) && !empty($stock['stock_key'])){
+                    $this->updateStock($stock, $this->product_key);
+                }else{
+                    $this->insertStock($stock, $this->product_key);
+                    echo 'teste';
+                }
+                
             }
 
             return true;

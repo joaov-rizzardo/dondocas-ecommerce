@@ -22,9 +22,12 @@ section#product-information article {
 }
 section#product-information #photo {
   padding: 32px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 section#product-information #photo img {
-  width: 40%;
+  width: 20%;
 }
 
 section#stock-information {

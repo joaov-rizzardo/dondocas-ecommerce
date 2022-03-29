@@ -68,6 +68,12 @@
                            value="<?=$productArray['product_value']?>">
                 </div>
 
+                <?php if(isset($productArray['product_photo'])) { ?>
+                <div id="photo">
+                    <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
+                </div>
+                <?php } ?>
+
                 <div class="item">
                     <label>Foto:</label>
                     <input class="form-control" type="file" id="img-file">
@@ -76,14 +82,7 @@
                     <input type="hidden" id="img-width">
                     <input type="hidden" id="img-height">
                 </div>
-
-                <?php if(isset($productArray['product_photo'])) { ?>
-                <div id="photo">
-                    <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
-                </div>
-                <?php } ?>
-                
-                            
+            
             </article>
 
             <article class="col-md-6">
@@ -124,18 +123,19 @@
                 <!-- INICIO DO FOREACH -->
             <?php foreach($productArray['stock'] as $stock) { ?>
                 <fieldset class="fieldset-stock-item">
+                    <input type="hidden" class="stock_key" value="<?=$stock['stock_key']?>">
                     <div class="stock-item">
                         <label>Cor:</label>
                         <input type="text" class="form-control product-color-name" value="<?=$stock['product_color_name']?>">
 
                         <label>Selecione a cor:</label>
-                        <input type="color" class="form-control product-color">
+                        <input type="color" class="form-control product-color" value="<?=$stock['product_color']?>">
                     </div>
 
                     <div class="stock-item">
                         <label>Tamanho:</label>
                         <select class="form-control product-size">
-                            <?php foreach($sizes as $size) { ?>
+                            <?php foreach($sizes as $size) { ?>ocal
                                 <!-- SETA O TAMANHO COMO SELECIONADO SE É O QUE ESTÁ GRAVADO NO PRODUTO -->
                                 <option <?php if($stock['size_key'] == $size['size_key']) echo "selected"; ?> value="<?=$size['size_key']?>">
                                     <?=$size['size_name']?>

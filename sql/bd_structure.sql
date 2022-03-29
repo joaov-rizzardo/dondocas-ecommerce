@@ -34,15 +34,13 @@ CREATE TABLE IF NOT EXISTS product(
 )
 
 CREATE TABLE IF NOT EXISTS product_stock(
+    stock_key INT NOT NULL AUTO_INCREMENT,
     product_key INT NOT NULL,
     product_color_name VARCHAR(80) NOT NULL,
+    product_color VARCHAR(70) NOT NULL,
     size_key INT NOT NULL,
     product_amount INT NOT NULL,
-    PRIMARY KEY(
-        product_key,
-        product_color_name,
-        size_key
-    ),
+    PRIMARY KEY(stock_key),
     FOREIGN KEY(product_key) REFERENCES product(product_key),
     FOREIGN KEY(size_key) REFERENCES product_size(size_key)
 );
