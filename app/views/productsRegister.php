@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__."/../models/product.php";
+    require_once __DIR__."/../services/log.php";
     
     if(isset($_GET['product_key']) && !empty($_GET['product_key'])){
 
@@ -68,11 +69,16 @@
                            value="<?=$productArray['product_value']?>">
                 </div>
 
-                <?php if(isset($productArray['product_photo'])) { ?>
-                <div id="photo">
-                    <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
-                </div>
-                <?php } ?>
+                
+                    <article id="photo-preview">
+                        <div id="photo">
+                            <?php if(isset($productArray['product_photo'])) { ?>
+                                <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
+                            <?php } ?>
+                        </div>
+                    </article>
+                
+                
 
                 <div class="item">
                     <label>Foto:</label>

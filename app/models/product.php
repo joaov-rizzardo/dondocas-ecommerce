@@ -1,7 +1,8 @@
 <?php
 
     require_once __DIR__.'/../DAO/productDAO.php';
-    
+    require_once __DIR__."/../services/log.php";
+
     class Product extends ProductDAO{
         private $product_key;
 
@@ -108,7 +109,6 @@
                     $this->updateStock($stock, $this->product_key);
                 }else{
                     $this->insertStock($stock, $this->product_key);
-                    echo 'teste';
                 }
                 
             }

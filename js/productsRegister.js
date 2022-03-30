@@ -176,6 +176,7 @@ $(document).ready(() => {
                     document.querySelector('#img-y').value = event.detail.y
                     document.querySelector('#img-width').value = event.detail.width
                     document.querySelector('#img-height').value = event.detail.height
+                   
                 }
             })
 
@@ -184,6 +185,32 @@ $(document).ready(() => {
 
             $('#save-img').one('click', () => {
                 cropper.destroy()
+
+                const x = document.querySelector('#img-x').value
+                const y = document.querySelector('#img-y').value
+                const width = document.querySelector('#img-width').value
+                const height = document.querySelector('#img-height').value
+                const $imagePreview = $('#photo img')
+
+                
+                if(!$imagePreview){
+                    $imagePreview = document.createElement('img')
+
+                    $divPhoto = document.querySelector('#photo')
+
+                    $divPhoto.appendChild($imagePreview)
+                }
+
+                $imagePreview.attr('src', reader.result)
+
+                console.log($imagePreview)
+
+                $imagePreview.css({
+                    width : width,
+                    height: height,
+                    transform: `translateX(${-(x)}px) translateY(${-(y)}px)`
+                })
+                
                 $('.modal').hide()
             })
         }
@@ -228,13 +255,7 @@ $(document).ready(() => {
 
         const $selectSizes = document.createElement('select')
         $selectSizes.className = 'form-control product-size'
-
-        const $defaultOption = document.createElement('option')
-        $defaultOption.value = ''
-        $defaultOption.innerHTML = 'Tamanho único'
-        $defaultOption.selected = 'selected'
-
-        $selectSizes.appendChild($defaultOption)
+        
         //Requisição para buscar os tamanhos
         const response = $.ajax({
             url: `${pathBase}/app/controllers/productController.php`,

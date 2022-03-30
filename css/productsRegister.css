@@ -20,14 +20,23 @@ h2 button i {
 section#product-information article {
   padding: 10px;
 }
-section#product-information #photo {
-  padding: 32px;
+section#product-information #photo-preview {
   display: flex;
   justify-content: center;
-  width: 100%;
+}
+section#product-information #photo {
+  padding: 32px;
+  width: 312px;
+  height: 416px;
+  overflow: hidden;
 }
 section#product-information #photo img {
-  width: 20%;
+  width: 100%;
+  display: block;
+  min-width: 0px !important;
+  min-height: 0px !important;
+  max-width: none !important;
+  max-height: none !important;
 }
 
 section#stock-information {

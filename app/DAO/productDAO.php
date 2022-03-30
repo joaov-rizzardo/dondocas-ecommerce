@@ -1,5 +1,6 @@
 <?php
-    require_once __DIR__.'/../services/dbConnection.php'; 
+    require_once __DIR__.'/../services/dbConnection.php';
+    require_once __DIR__."/../services/log.php";
 
     class ProductDAO{
 
@@ -131,7 +132,7 @@
                         stock_key = :stock_key";
             
             $stmt = $db->prepare($query);
-            $stmt->bindParam(':product_key', $stock_key);
+            $stmt->bindParam(':stock_key', $stock['stock_key']);
             $stmt->bindParam(':product_key', $product_key);
             $stmt->bindParam(':product_color_name', $stock['product_color_name']);
             $stmt->bindParam(':size_key', $stock['size_key']);
