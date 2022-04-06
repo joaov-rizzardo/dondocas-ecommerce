@@ -29,14 +29,12 @@ section#product-information #photo {
   width: 312px;
   height: 416px;
   overflow: hidden;
+  position: relative;
 }
 section#product-information #photo img {
   width: 100%;
   display: block;
-  min-width: 0px !important;
-  min-height: 0px !important;
-  max-width: none !important;
-  max-height: none !important;
+  position: absolute;
 }
 
 section#stock-information {

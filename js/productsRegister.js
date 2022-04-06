@@ -150,17 +150,33 @@ $(document).ready(() => {
     //----------------------------------------------------------------------------//
 
     $('#img-file').on('change', event => {
+    
         const $image = document.querySelector('#img-modal')
 
         let files = event.target.files
 
         let reader = new FileReader();
 
+        showLoading()
+
         // RECEBE A URL DA IMAGEM
         reader.readAsDataURL(files[0])
 
         reader.onload = () => {
+
+            hideLoading()
+
             $image.src = reader.result
+
+            // CRIA A DIV QUE IRÁ RECEBER O PREVIEW DA IMAGEM CASO ELA NÃO EXISTA
+            let $divPhoto = document.querySelector('#photo')
+
+            if(!$divPhoto){
+                $divPhoto = document.createElement('div')
+                $divPhoto.id = 'photo'
+
+                document.querySelector('#photo-preview').appendChild($divPhoto)
+            }
 
             $('.modal').show()
 
@@ -169,6 +185,7 @@ $(document).ready(() => {
                 aspectRatio: 3120 / 4160,
                 dragMode: 'move',
                 viewMode: 1,
+                preview: '#photo',
                 highlight: false,
                 background: false,
                 crop: event => {
@@ -184,32 +201,21 @@ $(document).ready(() => {
             // EVITA DE ADICIONAR EVENTO DE ONCLICK, SEMPRE QUE O EVENTO DE ONCHANGE DO INPUT FOR DISPARADO
 
             $('#save-img').one('click', () => {
+
+                const $image = document.querySelector('#photo img')
+
                 cropper.destroy()
 
-                const x = document.querySelector('#img-x').value
-                const y = document.querySelector('#img-y').value
-                const width = document.querySelector('#img-width').value
-                const height = document.querySelector('#img-height').value
-                const $imagePreview = $('#photo img')
+                let $divPhoto = document.querySelector('#photo')
 
-                
-                if(!$imagePreview){
-                    $imagePreview = document.createElement('img')
-
-                    $divPhoto = document.querySelector('#photo')
-
-                    $divPhoto.appendChild($imagePreview)
+                if(!$divPhoto){
+                    $('.modal').hide()
+                    return
                 }
 
-                $imagePreview.attr('src', reader.result)
+                $divPhoto.innerHTML = ''
 
-                console.log($imagePreview)
-
-                $imagePreview.css({
-                    width : width,
-                    height: height,
-                    transform: `translateX(${-(x)}px) translateY(${-(y)}px)`
-                })
+                $divPhoto.appendChild($image)
                 
                 $('.modal').hide()
             })

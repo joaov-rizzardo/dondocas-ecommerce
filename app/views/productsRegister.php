@@ -71,11 +71,11 @@
 
                 
                     <article id="photo-preview">
+                    <?php if(isset($productArray['product_photo'])) { ?>
                         <div id="photo">
-                            <?php if(isset($productArray['product_photo'])) { ?>
-                                <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
-                            <?php } ?>
+                            <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
                         </div>
+                        <?php } ?>
                     </article>
                 
                 

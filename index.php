@@ -42,6 +42,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 <link rel="stylesheet" href="<?=$pathBase?>css/general.css">
 
 <?php
+    require_once 'app/components/loading.php';
     require_once 'app/components/navbar.php';
     include 'app/components/fixedButtons.php';
     require_once $path;

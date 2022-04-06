@@ -1,0 +1,17 @@
+#loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+#loading img {
+  width: 200px;
+  height: 200px;
+}
+
+/*# sourceMappingURL=loading.css.map */
