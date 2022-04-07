@@ -250,5 +250,26 @@
                 return false;
             }
         }
+
+        // DELETA A LINHA DE ESTOQUE INFORMADA
+        public function delStockLine($stock_key){
+
+            global $db;
+
+            $query = "DELETE FROM
+                        product_stock
+                    WHERE
+                        stock_key = :stock_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':stock_key', $stock_key);
+
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     }
 ?>

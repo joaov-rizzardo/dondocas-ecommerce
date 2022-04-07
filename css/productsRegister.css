@@ -47,6 +47,12 @@ section#stock-information fieldset {
   border-radius: 10px;
   margin-bottom: 15px;
 }
+section#stock-information fieldset button {
+  float: right;
+  border: none;
+  background: transparent;
+  font-size: 2em;
+}
 section#stock-information div.stock-item {
   display: flex;
   align-items: center;

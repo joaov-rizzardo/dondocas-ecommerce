@@ -129,6 +129,7 @@
                 <!-- INICIO DO FOREACH -->
             <?php foreach($productArray['stock'] as $stock) { ?>
                 <fieldset class="fieldset-stock-item">
+                    <button onclick="delStockLine(event)"><i class="fa-solid fa-xmark"></i></button>
                     <input type="hidden" class="stock_key" value="<?=$stock['stock_key']?>">
                     <div class="stock-item">
                         <label>Cor:</label>

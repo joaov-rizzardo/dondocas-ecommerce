@@ -81,5 +81,19 @@
 
             echo json_encode($sizes);
         break;
+        // DELETA A LINHA DE ESTOQUE INFORMADA
+        case 'delStock':
+            $stock_key = $_POST['stock_key'];
+
+            if(!$stock_key){
+                echo false;
+                return;
+            }
+
+            $product = new Product();
+
+            $product->delStockLine($stock_key);
+            
+        break;
     }
 ?>

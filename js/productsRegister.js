@@ -7,6 +7,8 @@ $(document).ready(() => {
 
     $('#save').on('click', () => {
 
+        showLoading()
+        
         const productName = document.querySelector('#product-name').value
         const productValue = document.querySelector('#product-value').value
         const productCategory = document.querySelector('#product-category').value
@@ -42,6 +44,7 @@ $(document).ready(() => {
 
         // VALIDA SE FOI SELECIONADA UMA IMAGEM
         if (files.length == 0 && !productKey.length) {
+            hideLoading()
             alert('Nenhuma imagem foi selecionada')
             return
         }
@@ -69,6 +72,7 @@ $(document).ready(() => {
         let stopCondition = false // VARIAVEL QUE IRÁ RECEBER A CONDIÇÃO DE PARADA -  SE TRUE DEVE INTERROMPER A EXECUÇÃO DA FUNÇÃO
         validationArray.every(field => {
             if (field == '') {
+                hideLoading()
                 alert('Verifique se todos os campos foram preenchidos')
                 stopCondition = true
                 return false
@@ -117,6 +121,7 @@ $(document).ready(() => {
             })
 
             if (stopCondition) {
+                hideLoading()
                 alert('Verifique se todos os campos relacionados a estoque foram preenchidos')
                 return
             }
@@ -135,7 +140,8 @@ $(document).ready(() => {
             processData: false,
             contentType: false,
             success: response => {
-
+                hideLoading()
+                alert('Produto cadastrado com sucesso!')
             },
             error: () => {
                 alert('Não foi possível salvar o produto')
@@ -227,14 +233,20 @@ $(document).ready(() => {
     //==================================================//
 
     $('#stock_add').on('click', () => {
+        showLoading()
         const subcategory = document.querySelector('#product-subcategory').value
 
         if (!subcategory.length) {
+            hideLoading()
             alert('É necessário preencher todos os campos acima para adicionar estoque')
             return
         }
         const $fieldset = document.createElement('fieldset')
         $fieldset.className = "fieldset-stock-item"
+
+        const $button = document.createElement('button')
+        $button.setAttribute('onclick', 'delStockLine(event)')
+        $button.innerHTML = '<i class="fa-solid fa-xmark"></i>'
 
         const $divSize = document.createElement('div')
         $divSize.className = 'stock-item'
@@ -272,11 +284,13 @@ $(document).ready(() => {
                 subcategory_key: subcategory
             },
             error: () => {
+                hideLoading()
                 alert('Ocorreu um erro inesperado')
             }
         }).responseText
 
         if (response == 'false') {
+            hideLoading()
             return
         }
 
@@ -309,19 +323,21 @@ $(document).ready(() => {
         $divSize.appendChild($inputAmount)
 
         //  INCLUINDO AS DIVS AO FIELD SET
+        $fieldset.appendChild($button)
         $fieldset.appendChild($divColor)
         $fieldset.appendChild($divSize)
         // INCLUINDO A DIV NO HTML
         const $sectionStock = document.querySelector('#stock-information')
         $sectionStock.appendChild($fieldset)
 
-
+        hideLoading()
     })
 
     //==========================================================================
     //                   FLUXO PARA BUSCAR AS SUBCATEGORIAS
     //==========================================================================
     $('#product-category').on('change', event => {
+        showLoading()
         const categoryKey = event.target.value
         let productSubCategory = document.querySelector('#product-subcategory')
         productSubCategory.innerHTML = ''
@@ -336,11 +352,13 @@ $(document).ready(() => {
                 category_key: categoryKey
             },
             error: () => {
+                hideLoading()
                 alert('Ocorreu um erro inesperado')
             }
         }).responseText
 
         if (response == 'false') {
+            hideLoading()
             return;
         }
         const subCategories = JSON.parse(response)
@@ -362,11 +380,14 @@ $(document).ready(() => {
     //=========================================================================
     $('#product-subcategory').on('change', event => {
 
+        showLoading()
+
         const subcategory_key = event.target.value
 
         changeSelectSizes(subcategory_key)
 
     })
+
 })
 
 function changeSelectSizes(subcategory_key) {
@@ -375,6 +396,7 @@ function changeSelectSizes(subcategory_key) {
     let $productSizes = document.querySelectorAll('.product-size')
 
     if (!$productSizes.length) {
+        hideLoading()
         return
     }
 
@@ -388,11 +410,13 @@ function changeSelectSizes(subcategory_key) {
             subcategory_key: subcategory_key
         },
         error: () => {
+            hideLoading()
             alert('Ocorreu um erro inesperado')
         }
     }).responseText
 
     if(!response){
+        hideLoading()
         return false
     }
 
@@ -413,6 +437,43 @@ function changeSelectSizes(subcategory_key) {
         })
     })
 
-    
+    hideLoading()
 }
 
+//=========================================================================
+//                FLUXO PARA EXCLUIR A LINHA DE ESTOQUE
+//=========================================================================
+function delStockLine(event){
+
+    if(!confirm('Você tem certeza que deseja excluir a linha de estoque?')){
+        return
+    }
+
+    showLoading();
+
+    const $fieldset = event.target.closest('fieldset')
+        
+    const $stockKey = $fieldset.querySelector('.stock_key')
+
+    if($stockKey){
+        const stock_key = $stockKey.value
+        
+        $.ajax({
+            url: `${pathBase}/app/controllers/productController.php`,
+            type: 'post',
+            async: false,
+            data: {
+                action: 'delStock',
+                stock_key
+            },
+            error: () => {
+                hideLoading()
+                alert('Ocorreu um erro inesperado')
+            }
+        })
+    }
+
+    hideLoading()
+    
+    $fieldset.parentNode.removeChild($fieldset)
+}

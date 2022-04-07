@@ -47,6 +47,12 @@ section#product-information{
 section#stock-information{
     padding: 10px;
     fieldset{
+        button{
+            float: right;
+            border: none;
+            background: transparent;
+            font-size: 2em;
+        }
         border: 1px solid gray;
         padding: 16px;
         background: lightgray;
