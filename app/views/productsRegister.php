@@ -118,6 +118,13 @@
                         <?php } ?>
                     </select>
                 </div>
+
+                <div class="item">
+                    <label for="">Promoção:</label>
+                    <input type="checkbox" name="promotion" id="promotion">
+                    <input type="text" name="promotion_value" id="promotion_value" class="form-control">
+                </div>
+
             </article>
         </section>
 

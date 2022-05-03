@@ -30,7 +30,7 @@
                             ->save("../../img/{$imageName}");
                 }
                 
-                    
+                
                 // ARRAY QUE DEVE CONTER OS ATRIBUTOS DA CLASSE QUE SERÁ INSTANCIADA
                 // OS INDICES DEVEM SER IGUAIS AO NOME DO ATRIBUTO
                 $productData = [
@@ -38,7 +38,9 @@
                     'product_value' => str_replace(',', '.', $_POST['product_value']),
                     'category_key' => $_POST['category_key'],
                     'subcategory_key' => $_POST['subcategory_key'],
-                    'stock' => json_decode($_POST['stock'], true)
+                    'product_promotion' => $_POST['product_promotion'],
+                    'product_promotion_value' => str_replace(',', '.', $_POST['product_promotion_value']),
+                    'stock' => json_decode($_POST['stock'], true)   
                 ];
 
                 if(!empty($imageName)){

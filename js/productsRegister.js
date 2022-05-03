@@ -5,6 +5,10 @@ $(document).ready(() => {
         reverse: true
     })
 
+    $('#promotion_value').mask('00000,00', {
+        reverse: true
+    })
+
     $('#save').on('click', () => {
 
         showLoading()
@@ -13,6 +17,8 @@ $(document).ready(() => {
         const productValue = document.querySelector('#product-value').value
         const productCategory = document.querySelector('#product-category').value
         const productSubCategory = document.querySelector('#product-subcategory').value
+        const productPromotion = document.querySelector('#promotion').checked
+        const productPromotionValue = document.querySelector('#promotion_value').value
         const imageX = document.querySelector('#img-x').value
         const imageY = document.querySelector('#img-y').value
         const imageWidth = document.querySelector('#img-width').value
@@ -25,6 +31,8 @@ $(document).ready(() => {
         formData.append('product_value', productValue)
         formData.append('category_key', productCategory)
         formData.append('subcategory_key', productSubCategory)
+        formData.append('product_promotion', productPromotion ? 1 : 0)
+        formData.append('product_promotion_value', productPromotionValue)
 
         const productKey = document.querySelector('#product_key').value
 

@@ -16,7 +16,7 @@
 
         private $subcategory_key;
 
-        private $product_promotion_key;
+        private $product_promotion;
 
         private $product_promotion_value;
 

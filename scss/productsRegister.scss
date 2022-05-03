@@ -90,6 +90,7 @@ section#stock-information{
     }
 }
 
+
 .item{
     display: flex;
     align-items: center;
@@ -101,6 +102,9 @@ section#stock-information{
         font-weight: bold;
     }
 
+    input#promotion{
+        transform: scale(2);
+    }
 }
 
 .modal-dialog{

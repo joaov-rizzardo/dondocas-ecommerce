@@ -73,7 +73,9 @@
                         product_value = :product_value,
                         product_photo = :product_photo,
                         category_key = :category_key,
-                        subcategory_key = :subcategory_key";
+                        subcategory_key = :subcategory_key,
+                        product_promotion = :product_promotion,
+                        product_promotion_value = :product_promotion_value";
             
             $stmt = $db->prepare($query);
             $stmt->bindParam(':product_name', $product['product_name']);
@@ -81,6 +83,8 @@
             $stmt->bindParam(':product_photo', $product['product_photo']);
             $stmt->bindParam(':category_key', $product['category_key']);
             $stmt->bindParam(':subcategory_key', $product['subcategory_key']);
+            $stmt->bindParam(':product_promotion', $product['product_promotion']);
+            $stmt->bindParam(':product_promotion_value', $product['product_promotion_value']);
 
             if(!$stmt->execute()){
                 return false;
@@ -224,7 +228,9 @@
                             product_name = :product_name,
                             category_key = :category_key,
                             subcategory_key = :subcategory_key,
-                            product_value = :product_value";
+                            product_value = :product_value,
+                            product_promotion = :product_promotion,
+                            product_promotion_value = :product_promotion_value";
             
             // SÓ REALIZA A ALTERAÇÃO DA FOTO QUANDO A MESMA ESTIVER SETADA NO ARRAY
             if(isset($product['product_photo']) && !empty($product['product_photo'])){
@@ -239,6 +245,8 @@
             $stmt->bindParam(':category_key', $product['category_key']);
             $stmt->bindParam(':subcategory_key', $product['subcategory_key']);
             $stmt->bindParam(':product_key', $product['product_key']);
+            $stmt->bindParam(':product_promotion', $product['product_promotion']);
+            $stmt->bindParam(':product_promotion_value', $product['product_promotion_value']);
             
             if(isset($product['product_photo']) && !empty($product['product_photo'])){
                 $stmt->bindParam(':product_photo', $product['product_photo']);

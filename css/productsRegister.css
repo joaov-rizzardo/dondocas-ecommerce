@@ -87,6 +87,9 @@ section#stock-information div.stock-item label {
   width: 120px;
   font-weight: bold;
 }
+.item input#promotion {
+  transform: scale(2);
+}
 
 .modal-dialog {
   max-width: 1000px;
