@@ -1,0 +1,117 @@
+Array
+(
+    [product_key] => 
+    [product_name] => 
+    [product_value] => 
+    [product_photo] => 
+    [category_key] => 
+    [subcategory_key] => 
+    [product_promotion] => 
+    [product_promotion_value] => 
+    [product_date] => 
+    [stock] => 
+)
+Array
+(
+    [product_key] => 
+    [product_name] => 
+    [product_value] => 
+    [product_photo] => 
+    [category_key] => 
+    [subcategory_key] => 
+    [product_promotion] => 
+    [product_promotion_value] => 
+    [product_date] => 
+    [stock] => 
+)
+Array
+(
+    [product_key] => 
+    [product_name] => 
+    [product_value] => 
+    [product_photo] => 
+    [category_key] => 
+    [subcategory_key] => 
+    [product_promotion] => 
+    [product_promotion_value] => 
+    [product_date] => 
+    [stock] => 
+)
+Array
+(
+    [product_key] => 
+    [product_name] => 
+    [product_value] => 
+    [product_photo] => 
+    [category_key] => 
+    [subcategory_key] => 
+    [product_promotion] => 
+    [product_promotion_value] => 
+    [product_date] => 
+    [stock] => 
+)
+Array
+(
+    [product_key] => 
+    [product_name] => 
+    [product_value] => 
+    [product_photo] => 
+    [category_key] => 
+    [subcategory_key] => 
+    [product_promotion] => 
+    [product_promotion_value] => 
+    [product_date] => 
+    [stock] => 
+)
+Array
+(
+    [product_key] => 1
+    [product_name] => Produto teste
+    [product_value] => 150.00
+    [product_photo] => img03052022171806.jpg
+    [category_key] => 1
+    [subcategory_key] => 1
+    [product_promotion] => 1
+    [product_promotion_value] => 145
+    [product_date] => 2022-05-03 12:18:06
+    [stock] => Array
+        (
+            [0] => Array
+                (
+                    [stock_key] => 1
+                    [product_key] => 1
+                    [product_color_name] => Azul
+                    [product_color] => #16112f
+                    [product_amount] => 1
+                    [size_key] => 4
+                )
+
+        )
+
+)
+Array
+(
+    [product_key] => 1
+    [product_name] => Produto teste
+    [product_value] => 150.00
+    [product_photo] => img03052022171806.jpg
+    [category_key] => 1
+    [subcategory_key] => 1
+    [product_promotion] => 1
+    [product_promotion_value] => 145
+    [product_date] => 2022-05-03 12:18:06
+    [stock] => Array
+        (
+            [0] => Array
+                (
+                    [stock_key] => 1
+                    [product_key] => 1
+                    [product_color_name] => Azul
+                    [product_color] => #16112f
+                    [product_amount] => 1
+                    [size_key] => 4
+                )
+
+        )
+
+)

@@ -19,7 +19,7 @@
 
             <div class="div-titulo">
                 <div class="titulo">
-                    <span>
+                    <span>  
                         categorias
                     </span>
                 </div>

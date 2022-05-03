@@ -15,6 +15,7 @@
     // RECUPERA OS ATRIBUTOS DO PRODUTO EM FORMATO DE ARRAY
     $productArray = $product->getObjectVars();
 
+    Log::writelog('product', $productArray);
     $categories = $product->getCategories();
     $subcategories = $product->getSubcategories($product->__get('category_key'));
     $sizes = $product->getSubcategorySizes($product->__get('subcategory_key'));
@@ -69,17 +70,6 @@
                            value="<?=$productArray['product_value']?>">
                 </div>
 
-                
-                    <article id="photo-preview">
-                    <?php if(isset($productArray['product_photo'])) { ?>
-                        <div id="photo">
-                            <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
-                        </div>
-                        <?php } ?>
-                    </article>
-                
-                
-
                 <div class="item">
                     <label>Foto:</label>
                     <input class="form-control" type="file" id="img-file">
@@ -88,6 +78,14 @@
                     <input type="hidden" id="img-width">
                     <input type="hidden" id="img-height">
                 </div>
+
+                <article id="photo-preview">
+                    <?php if(isset($productArray['product_photo'])) { ?>
+                        <div id="photo">
+                            <img src="<?=$pathBase?>img/<?=$productArray['product_photo']?>" alt="">
+                        </div>
+                    <?php } ?>
+                </article>
             
             </article>
 
@@ -121,8 +119,9 @@
 
                 <div class="item">
                     <label for="">Promoção:</label>
-                    <input type="checkbox" name="promotion" id="promotion">
-                    <input type="text" name="promotion_value" id="promotion_value" class="form-control">
+                    <input <?php echo $productArray['product_promotion'] ? 'checked' : '' ?> type="checkbox" name="promotion" id="promotion">
+                    <input type="text" name="promotion_value" id="promotion_value" class="form-control"
+                    value="<?=$productArray['product_promotion_value']?>">
                 </div>
 
             </article>

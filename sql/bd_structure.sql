@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS product(
     product_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(category_key) REFERENCES product_category(category_key),
     FOREIGN KEY(subcategory_key) REFERENCES product_subcategory(subcategory_key)
-)
+);
 
 CREATE TABLE IF NOT EXISTS product_stock(
     stock_key INT NOT NULL AUTO_INCREMENT,
