@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__.'/../models/product.php';
+require_once __DIR__.'/../services/log.php';
+
+$product = new Product();
+
+$releasesProducts = $product->getReleasesProducts();
+
+$promotionProducts = $product->getPromotionProducts();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,17 +65,20 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
+
+                            <?php foreach($releasesProducts as $product){ ?>
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
-                                    <img class="img-novidades" src="<?=$pathBase?>img/novidades.jpg" alt="">
+                                    <img class="img-novidades" src="<?=$pathBase?>img/<?=$product['product_photo']?>" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
                                 <div>
-                                    <span>Macacão listrado</span>
-                                    <h6>R$ 51,00</h6>
+                                    <span><?=$product['product_name']?></span>
+                                    <h6>R$ <?=str_replace('.', ',', $product['product_value'])?></h6>
                                     <small>Até 10x (sem juros)</small>
                                 </div>
                             </li>
+                            <?php } ?>
 
                         </ul>
                         <div class="glide__arrows" data-glide-el="controls">
@@ -91,16 +106,19 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
+                        <?php foreach($promotionProducts as $product){ ?>
                             <li class="glide__slide">
                                 <a href="https://www.google.com.br" style="display: block;">
-                                    <img class="img-novidades" src="<?=$pathBase?>img/novidades.jpg" alt="">
+                                    <img class="img-novidades" src="<?=$pathBase?>img/<?=$product['product_photo']?>" alt="">
                                     <h2 class="veja-mais">Veja mais</h2>
                                 </a>
 
-                                <span>Macacão listrado</span>
-                                <h6>R$ 51,00</h6>
+                                <span><?=$product['product_name']?></span>
+                                <h6><s>R$ <?=str_replace('.', ',', $product['product_value'])?></s></h6>
+                                <h6>R$ <?=str_replace('.', ',', $product['product_promotion_value'])?></h6>
                                 <small>Até 10x (sem juros)</small>
                             </li>
+                        <?php } ?>
                         </ul>
                         <div class="glide__arrows" data-glide-el="controls">
                             <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa-solid fa-chevron-left"></i></button>

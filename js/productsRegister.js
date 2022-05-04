@@ -12,7 +12,7 @@ $(document).ready(() => {
     $('#save').on('click', () => {
 
         showLoading()
-        
+
         const productName = document.querySelector('#product-name').value
         const productValue = document.querySelector('#product-value').value
         const productCategory = document.querySelector('#product-category').value
@@ -36,7 +36,7 @@ $(document).ready(() => {
 
         const productKey = document.querySelector('#product_key').value
 
-        if(productKey.length){
+        if (productKey.length) {
             formData.append('product_key', productKey)
         }
 
@@ -57,7 +57,7 @@ $(document).ready(() => {
             return
         }
 
-        if(files.length > 0){
+        if (files.length > 0) {
 
             const image = files[0]
 
@@ -74,7 +74,7 @@ $(document).ready(() => {
             validationArray.push(imageWidth)
             validationArray.push(imageHeight)
         }
-        
+
 
         // REALIZA A VALIDAÇÃO DOS CAMPOS
         let stopCondition = false // VARIAVEL QUE IRÁ RECEBER A CONDIÇÃO DE PARADA -  SE TRUE DEVE INTERROMPER A EXECUÇÃO DA FUNÇÃO
@@ -118,11 +118,11 @@ $(document).ready(() => {
 
                 const $stockKey = $stock.querySelector('.stock_key')
 
-                if($stockKey){
+                if ($stockKey) {
 
-                    if($stockKey.value != ''){
+                    if ($stockKey.value != '') {
                         stockObj.stock_key = $stockKey.value
-                    }          
+                    }
                 }
 
                 stockItems.push(stockObj)
@@ -150,6 +150,7 @@ $(document).ready(() => {
             success: response => {
                 hideLoading()
                 alert('Produto cadastrado com sucesso!')
+                window.location.href = `?product_key=${response}`
             },
             error: () => {
                 alert('Não foi possível salvar o produto')
@@ -159,12 +160,47 @@ $(document).ready(() => {
 
     })
 
+    $('#del-product').on('click', () => {
+
+        const productKey = document.querySelector('#product_key').value
+
+        if (!productKey) {
+            alert('O produto ainda não foi cadastrado!')
+            return
+        }
+
+        if (!confirm('Tem certeza que deseja excluir o produto?')) {
+            return;
+        }
+
+        showLoading()
+
+        $.ajax({
+            url: `${pathBase}/app/controllers/productController.php`,
+            type: 'post',
+            async: false,
+            data: {
+                action: 'delProduct',
+                productKey: productKey
+            },
+            success: () => {
+                hideLoading()
+                alert('Produto excluído com sucesso!')
+                window.location.href = '?'
+            },  
+            error: () => {
+                hideLoading()
+                alert('Ocorreu um erro inesperado')
+            }
+        })
+    })
+
     //----------------------------------------------------------------------------//
     //                 FLUXO PARA REALIZAR O CROP DA IMAGEM                       //
     //----------------------------------------------------------------------------//
 
     $('#img-file').on('change', event => {
-    
+
         const $image = document.querySelector('#img-modal')
 
         let files = event.target.files
@@ -185,7 +221,7 @@ $(document).ready(() => {
             // CRIA A DIV QUE IRÁ RECEBER O PREVIEW DA IMAGEM CASO ELA NÃO EXISTA
             let $divPhoto = document.querySelector('#photo')
 
-            if(!$divPhoto){
+            if (!$divPhoto) {
                 $divPhoto = document.createElement('div')
                 $divPhoto.id = 'photo'
 
@@ -207,7 +243,7 @@ $(document).ready(() => {
                     document.querySelector('#img-y').value = event.detail.y
                     document.querySelector('#img-width').value = event.detail.width
                     document.querySelector('#img-height').value = event.detail.height
-                   
+
                 }
             })
 
@@ -222,7 +258,7 @@ $(document).ready(() => {
 
                 let $divPhoto = document.querySelector('#photo')
 
-                if(!$divPhoto){
+                if (!$divPhoto) {
                     $('.modal').hide()
                     return
                 }
@@ -230,7 +266,7 @@ $(document).ready(() => {
                 $divPhoto.innerHTML = ''
 
                 $divPhoto.appendChild($image)
-                
+
                 $('.modal').hide()
             })
         }
@@ -242,9 +278,9 @@ $(document).ready(() => {
 
     $('#stock_add').on('click', () => {
         showLoading()
-        const subcategory = document.querySelector('#product-subcategory').value
+        const category = document.querySelector('#product-category').value
 
-        if (!subcategory.length) {
+        if (!category.length) {
             hideLoading()
             alert('É necessário preencher todos os campos acima para adicionar estoque')
             return
@@ -281,15 +317,15 @@ $(document).ready(() => {
 
         const $selectSizes = document.createElement('select')
         $selectSizes.className = 'form-control product-size'
-        
+
         //Requisição para buscar os tamanhos
         const response = $.ajax({
             url: `${pathBase}/app/controllers/productController.php`,
             type: 'post',
             async: false,
             data: {
-                action: 'getSubcategorySizes',
-                subcategory_key: subcategory
+                action: 'getCategorySizes',
+                category_key: category
             },
             error: () => {
                 hideLoading()
@@ -399,7 +435,7 @@ $(document).ready(() => {
 })
 
 function changeSelectSizes(subcategory_key) {
-    
+
     // RECEBE A NODELIST COM OS SELECTS DE TAMANHO
     let $productSizes = document.querySelectorAll('.product-size')
 
@@ -423,7 +459,7 @@ function changeSelectSizes(subcategory_key) {
         }
     }).responseText
 
-    if(!response){
+    if (!response) {
         hideLoading()
         return false
     }
@@ -436,7 +472,7 @@ function changeSelectSizes(subcategory_key) {
     //==========================================================================
     $productSizes.forEach(item => {
         item.innerHTML = '';
-        
+
         subcategorySizes.map(size => {
             const option = document.createElement('option')
             option.value = size.size_key
@@ -451,21 +487,21 @@ function changeSelectSizes(subcategory_key) {
 //=========================================================================
 //                FLUXO PARA EXCLUIR A LINHA DE ESTOQUE
 //=========================================================================
-function delStockLine(event){
+function delStockLine(event) {
 
-    if(!confirm('Você tem certeza que deseja excluir a linha de estoque?')){
+    if (!confirm('Você tem certeza que deseja excluir a linha de estoque?')) {
         return
     }
 
     showLoading();
 
     const $fieldset = event.target.closest('fieldset')
-        
+
     const $stockKey = $fieldset.querySelector('.stock_key')
 
-    if($stockKey){
+    if ($stockKey) {
         const stock_key = $stockKey.value
-        
+
         $.ajax({
             url: `${pathBase}/app/controllers/productController.php`,
             type: 'post',
@@ -482,6 +518,6 @@ function delStockLine(event){
     }
 
     hideLoading()
-    
+
     $fieldset.parentNode.removeChild($fieldset)
 }

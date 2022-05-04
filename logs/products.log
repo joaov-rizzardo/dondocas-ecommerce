@@ -1,0 +1,44 @@
+
+Array
+(
+    [0] => Array
+        (
+            [product_key] => 5
+            [product_name] => Conjunto Vinho com Shorts saia
+            [product_value] => 56.99
+            [product_photo] => img04052022163424.jpg
+        )
+
+    [1] => Array
+        (
+            [product_key] => 4
+            [product_name] => Mule Azul Marinho e Vermelho
+            [product_value] => 55.00
+            [product_photo] => img04052022163007.jpg
+        )
+
+    [2] => Array
+        (
+            [product_key] => 3
+            [product_name] => Corrente Dourada de Coração
+            [product_value] => 22.00
+            [product_photo] => img04052022162739.jpg
+        )
+
+    [3] => Array
+        (
+            [product_key] => 2
+            [product_name] => Corrente Dourada Entrelaçada
+            [product_value] => 28.00
+            [product_photo] => img04052022162640.jpg
+        )
+
+    [4] => Array
+        (
+            [product_key] => 1
+            [product_name] => Vestido Longo Rosa Florido
+            [product_value] => 98.00
+            [product_photo] => img04052022162510.jpg
+        )
+
+)

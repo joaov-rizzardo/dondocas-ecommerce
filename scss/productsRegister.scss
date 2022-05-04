@@ -3,23 +3,17 @@ body{
 }
 
 h2{
-    margin-top: 30px;
     font-size: 1.5em;
     text-align: center;
-    border-bottom: 2px solid #000000;
     padding: 10px;
-
-    button{
-        background: none;
-        border: none;
-        i{
-            font-size: 1em;
-        }
-        
-    }
 }
 
 section#product-information{
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 15px;
+
     article{
         padding: 10px;
     }
@@ -28,6 +22,7 @@ section#product-information{
         display: flex;
         justify-content: center;
     }
+
     #photo{
         padding: 32px;
         width: 312px;
@@ -45,7 +40,34 @@ section#product-information{
 
 
 section#stock-information{
+    margin: 15px;
     padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 15px;
+
+    article#stock-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 10px;
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        button{
+            border: 1px solid #d3d3d3;
+            border-radius: 15px;
+            padding: 10px;
+
+            &:hover{
+                filter: brightness(0.5);
+            }
+        }
+
+    }
+
     fieldset{
         button{
             float: right;
@@ -54,8 +76,8 @@ section#stock-information{
             font-size: 2em;
         }
         border: 1px solid gray;
-        padding: 16px;
-        background: lightgray;
+        padding: 32px;
+        background: #fff;
         border-radius: 10px;
         margin-bottom: 15px;
     }
@@ -74,7 +96,8 @@ section#stock-information{
         }
 
         input[type=color]{
-            width: 20%;
+            width: 30px;
+            height: 30px;
             border-radius: 999px;
             padding: 0;
         }
@@ -87,6 +110,32 @@ section#stock-information{
             font-weight: bold;
         }
         
+    }
+}
+
+article#action-buttons{
+    display: flex;
+    margin: 15px;
+    gap: 10px;
+
+    button.btn-danger{
+        background: #fff;
+        color: #dc3545;
+
+        &:hover{
+            border-color: #000;
+            color: #000;
+        }
+    }
+
+    button.btn-primary{
+        background: #fff;
+        color: #0b5ed7;
+
+        &:hover{
+            border-color: #000;
+            color: #000;
+        }
     }
 }
 

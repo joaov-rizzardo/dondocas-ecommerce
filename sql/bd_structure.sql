@@ -14,9 +14,9 @@ CREATE TABLE IF NOT EXISTS product_subcategory(
 
 CREATE TABLE IF NOT EXISTS product_size(
     size_key INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    subcategory_key INT NOT NULL,
+    category_key INT NOT NULL,
     size_name VARCHAR(80) NOT NULL,
-    FOREIGN KEY(subcategory_key) REFERENCES product_subcategory(subcategory_key)
+    FOREIGN KEY(category_key) REFERENCES product_category(category_key)
 );
 
 CREATE TABLE IF NOT EXISTS product(

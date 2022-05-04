@@ -15,10 +15,9 @@
     // RECUPERA OS ATRIBUTOS DO PRODUTO EM FORMATO DE ARRAY
     $productArray = $product->getObjectVars();
 
-    Log::writelog('product', $productArray);
     $categories = $product->getCategories();
     $subcategories = $product->getSubcategories($product->__get('category_key'));
-    $sizes = $product->getSubcategorySizes($product->__get('subcategory_key'));
+    $sizes = $product->getCategorySizes($product->__get('category_key'));
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +50,8 @@
 
 <body>
     <main>
-        <h2>Cadastro de Produto</h2>
-
         <section class="row" id="product-information">
+        <h2>Cadastro de Produto</h2>
             <article class="col-md-6">
                 <input type="hidden" id="product_key" value="<?=$productArray['product_key']?>">
                 <div class="item">
@@ -127,10 +125,15 @@
             </article>
         </section>
 
-        <h2>Informações de Estoque <button id="stock_add"><i class="fa-solid fa-circle-plus"></i></button></h2>
+        
         
         <!-- OS ELEMENTOS SERÃO INSERIDOS COM JS OU PHP -->
         <section id="stock-information">
+            <article id="stock-header">
+                <h2>Informações de Estoque</h2>
+                <button id="stock_add" class="btn">Adicionar estoque</button>
+            </article>
+            
             <?php if(isset($productArray['stock'])) { ?>
                 <!-- INICIO DO FOREACH -->
             <?php foreach($productArray['stock'] as $stock) { ?>
@@ -164,8 +167,12 @@
             <?php }} ?>
             <!-- FIM DO FOREACH -->
         </section>
-
+        
+        <article id="action-buttons">
         <button class="btn btn-primary" id="save">Salvar alterações</button>
+        <button class="btn btn-danger" id="del-product">Excluir produto</button>
+        </article>
+        
 
         <!-- MODAL PARA CROP DAS IMAGENS -->
         <div class="modal" tabindex="-1" role="dialog">

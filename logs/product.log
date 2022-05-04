@@ -115,3 +115,59 @@ Array
         )
 
 )
+Array
+(
+    [product_key] => 4
+    [product_name] => Mule Azul Marinho e Vermelho
+    [product_value] => 55.00
+    [product_photo] => img04052022163007.jpg
+    [category_key] => 2
+    [subcategory_key] => 6
+    [product_promotion] => 0
+    [product_promotion_value] => 0
+    [product_date] => 2022-05-04 11:30:07
+    [stock] => Array
+        (
+            [0] => Array
+                (
+                    [stock_key] => 4
+                    [product_key] => 4
+                    [product_color_name] => Azul Marinho
+                    [product_color] => #142e63
+                    [product_amount] => 1
+                    [size_key] => 8
+                )
+
+            [1] => Array
+                (
+                    [stock_key] => 5
+                    [product_key] => 4
+                    [product_color_name] => Azul Marinho
+                    [product_color] => #1b3a72
+                    [product_amount] => 1
+                    [size_key] => 9
+                )
+
+            [2] => Array
+                (
+                    [stock_key] => 6
+                    [product_key] => 4
+                    [product_color_name] => Azul Marinho
+                    [product_color] => #142e63
+                    [product_amount] => 1
+                    [size_key] => 10
+                )
+
+            [3] => Array
+                (
+                    [stock_key] => 7
+                    [product_key] => 4
+                    [product_color_name] => Azul Marinho
+                    [product_color] => #1b3a72
+                    [product_amount] => 1
+                    [size_key] => 11
+                )
+
+        )
+
+)

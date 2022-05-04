@@ -103,8 +103,7 @@
             }
 
             foreach($stockInformation as $stock){
-
-                echo json_encode($stock);
+                
                 if(isset($stock['stock_key']) && !empty($stock['stock_key'])){
                     $this->updateStock($stock, $this->product_key);
                 }else{
@@ -113,7 +112,7 @@
                 
             }
 
-            return true;
+            return $this->product_key;
             
 
         }

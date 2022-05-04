@@ -191,7 +191,7 @@
         }
 
         // OBTEM OS TAMANHOS, DEVE RECEBER O CÓDIGO DA SUBCATEGORIA
-        public function getSubcategorySizes($subcategory_key){
+        public function getCategorySizes($category_key){
             
             global $db;
 
@@ -201,10 +201,10 @@
                     FROM
                         product_size
                     WHERE
-                        subcategory_key = :subcategory_key";
+                        category_key = :category_key";
 
             $stmt = $db->prepare($query);
-            $stmt->bindValue(':subcategory_key', $subcategory_key);
+            $stmt->bindValue(':category_key', $category_key);
             $stmt->execute();
             
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -279,5 +279,95 @@
             }
 
         }
+        public function delProduct($product_key){
+            global $db;
+
+            // DELETA O ESTOQUE RELACIONADO AO PRODUTO
+            $this->delProductStock($product_key);
+
+            $query = "DELETE FROM
+                        product
+                    WHERE
+                        product_key = :product_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_key', $product_key);
+
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        // FUNÇÃO USADA PARA DELETAR O ESTOQUE NO MOMENTO DE EXCLUSÃO DO PRODUTO
+        private function delProductStock($product_key){
+            global $db;
+
+            $query = "DELETE FROM
+                        product_stock
+                    WHERE
+                        product_key = :product_key";
+
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':product_key', $product_key);
+
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        // FUNÇÃO QUE RETORNA AS NOVIDADES, OS 20 ULTIMOS PRODUTOS CADASTRADOS
+        public function getReleasesProducts(){
+            global $db;
+
+            $query = "SELECT
+                        product_key,
+                        product_name,
+                        product_value,
+                        product_photo
+                    FROM
+                        product
+                    ORDER BY product_date DESC
+                    LIMIT 20";
+            
+            $stmt = $db->prepare($query);
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if($result){
+                return $result;
+            }
+        }
+
+        // FUNÇÃO QUE RETORNA AS NOVIDADES, OS 20 ULTIMOS PRODUTOS CADASTRADOS
+        public function getPromotionProducts(){
+            global $db;
+
+            $query = "SELECT
+                        product_key,
+                        product_name,
+                        product_value,
+                        product_promotion_value,
+                        product_photo
+                    FROM
+                        product
+                    WHERE
+                        product_promotion = 1
+                    ";
+            
+            $stmt = $db->prepare($query);
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if($result){
+                return $result;
+            }
+        }
     }
-?>

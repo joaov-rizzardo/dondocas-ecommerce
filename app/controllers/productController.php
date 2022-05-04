@@ -11,7 +11,6 @@
         // INSERE E ATUALIZA AS INFORMAÇÕES DE PRODUTO
         case 'saveProduct':
             try {
-
                 $imageName = '';
 
                 if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
@@ -74,12 +73,12 @@
             echo json_encode($subCategories);
         break;
         // OBTEM OS TAMANHOS COM BASE NA SUBCATEGORIA INFORMADA
-        case 'getSubcategorySizes':
-            $subcategory_key = $_POST['subcategory_key'];
+        case 'getCategorySizes':
+            $category_key = $_POST['category_key'];
 
             $product = new Product();
 
-            $sizes = $product->getSubcategorySizes($subcategory_key);
+            $sizes = $product->getCategorySizes($category_key);
 
             echo json_encode($sizes);
         break;
@@ -87,7 +86,7 @@
         case 'delStock':
             $stock_key = $_POST['stock_key'];
 
-            if(!$stock_key){
+            if(empty($stock_key)){
                 echo false;
                 return;
             }
@@ -96,6 +95,21 @@
 
             $product->delStockLine($stock_key);
             
+        break;
+
+        case 'delProduct':
+            $product_key = $_POST['productKey'];
+
+            Log::writelog('product_key', $product_key);
+            if(empty($product_key)){
+                echo false;
+                return;
+            }
+
+            $product = new Product();
+
+            $product->delProduct($product_key);
+
         break;
     }
 ?>

@@ -3,20 +3,17 @@ body {
 }
 
 h2 {
-  margin-top: 30px;
   font-size: 1.5em;
   text-align: center;
-  border-bottom: 2px solid #000000;
   padding: 10px;
 }
-h2 button {
-  background: none;
-  border: none;
-}
-h2 button i {
-  font-size: 1em;
-}
 
+section#product-information {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+}
 section#product-information article {
   padding: 10px;
 }
@@ -38,12 +35,33 @@ section#product-information #photo img {
 }
 
 section#stock-information {
+  margin: 15px;
   padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+}
+section#stock-information article#stock-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 10px;
+}
+section#stock-information article#stock-header h2 {
+  margin-bottom: 0;
+}
+section#stock-information article#stock-header button {
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  padding: 10px;
+}
+section#stock-information article#stock-header button:hover {
+  filter: brightness(0.5);
 }
 section#stock-information fieldset {
   border: 1px solid gray;
-  padding: 16px;
-  background: lightgray;
+  padding: 32px;
+  background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -66,7 +84,8 @@ section#stock-information div.stock-item input {
   width: 20%;
 }
 section#stock-information div.stock-item input[type=color] {
-  width: 20%;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
   padding: 0;
 }
@@ -75,6 +94,28 @@ section#stock-information div.stock-item input#product-color-name {
 }
 section#stock-information div.stock-item label {
   font-weight: bold;
+}
+
+article#action-buttons {
+  display: flex;
+  margin: 15px;
+  gap: 10px;
+}
+article#action-buttons button.btn-danger {
+  background: #fff;
+  color: #dc3545;
+}
+article#action-buttons button.btn-danger:hover {
+  border-color: #000;
+  color: #000;
+}
+article#action-buttons button.btn-primary {
+  background: #fff;
+  color: #0b5ed7;
+}
+article#action-buttons button.btn-primary:hover {
+  border-color: #000;
+  color: #000;
 }
 
 .item {
