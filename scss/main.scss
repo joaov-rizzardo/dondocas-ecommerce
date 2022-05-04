@@ -34,9 +34,6 @@ div.div-titulo{
     justify-content: center;
     >div{
         margin: 0 70px;
-        @media(max-width: 992px){
-            margin: 0;
-        }
         ul{
             text-align: center;
             li {
@@ -51,7 +48,7 @@ div.div-titulo{
                     }
     
                     h2.veja-mais{
-                        background: red;
+                        background: #9b111e;
                         color: white;
                         text-transform: uppercase;
                         width: 100%;
@@ -114,24 +111,44 @@ section#categorias{
     
     div#div-cards{
         width: 100vw;
-        margin-top: $margin;
+        margin: $margin 0;
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 40px;
+
+        @media(max-width: 768px){
+            gap: 20px;
+        }
+        
         
         a.card{
-            width: 30%;
-            overflow: hidden;
+            text-decoration: none;
+            width: 20%;
+
+            @media(max-width: 768px){
+                width: 28%;
+            }
+            
+            border: none;
+            text-align: center;
 
             img {
-                transition: all 0.4s;
-                object-fit: cover;
-                object-position: center;
-                
-                &:hover{
-                    cursor: pointer;
+                transition: all 0.5s;
+                border-radius: 50%;  
+            }
+
+            h3{
+                margin: 15px;
+                color: black;
+            }
+
+            // QUANDO O LINK ESTIVER EM ESTADO HOVER
+            &:hover{
+                cursor: pointer;
+                img{
                     transform: scale(1.1);
                 }
+                
             }
         }
     }
@@ -144,6 +161,8 @@ section#categorias{
     
     #slider-novidades{
         margin-top: $margin;
+        display: flex;
+        justify-content: center;
 
         .glide{
             @include slider;

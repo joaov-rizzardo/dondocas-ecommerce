@@ -39,15 +39,18 @@ $promotionProducts = $product->getPromotionProducts();
 
             <div id="div-cards">
                 <a class="card">
-                    <img src="<?=$pathBase?>img/roup.jpg" alt="">
+                    <img src="<?=$pathBase?>img/roupas.jpg" alt="">
+                    <h3>Roupas</h3>
                 </a>
 
                 <a class="card">
-                    <img src="<?=$pathBase?>img/acces.jpg" alt="">
+                    <img src="<?=$pathBase?>img/acessorios.jpg" alt="">
+                    <h3>Acessórios</h3>
                 </a>
 
                 <a class="card">
-                    <img src="<?=$pathBase?>img/calc.jpg" alt="">
+                    <img src="<?=$pathBase?>img/calcados.jpg" alt="">
+                    <h3>Calçados</h3>
                 </a>
             </div>
         </section>

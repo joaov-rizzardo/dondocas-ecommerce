@@ -170,22 +170,39 @@ section#categorias {
 }
 section#categorias div#div-cards {
   width: 100vw;
-  margin-top: 40px;
+  margin: 40px 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  section#categorias div#div-cards {
+    gap: 20px;
+  }
 }
 section#categorias div#div-cards a.card {
-  width: 30%;
-  overflow: hidden;
+  text-decoration: none;
+  width: 20%;
+  border: none;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  section#categorias div#div-cards a.card {
+    width: 28%;
+  }
 }
 section#categorias div#div-cards a.card img {
-  transition: all 0.4s;
-  object-fit: cover;
-  object-position: center;
+  transition: all 0.5s;
+  border-radius: 50%;
 }
-section#categorias div#div-cards a.card img:hover {
+section#categorias div#div-cards a.card h3 {
+  margin: 15px;
+  color: black;
+}
+section#categorias div#div-cards a.card:hover {
   cursor: pointer;
+}
+section#categorias div#div-cards a.card:hover img {
   transform: scale(1.1);
 }
 
@@ -195,6 +212,8 @@ section#categorias div#div-cards a.card img:hover {
 }
 #novidades #slider-novidades {
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 #novidades #slider-novidades .glide {
   display: flex;
@@ -203,11 +222,6 @@ section#categorias div#div-cards a.card img:hover {
 }
 #novidades #slider-novidades .glide > div {
   margin: 0 70px;
-}
-@media (max-width: 992px) {
-  #novidades #slider-novidades .glide > div {
-    margin: 0;
-  }
 }
 #novidades #slider-novidades .glide > div ul {
   text-align: center;
@@ -222,7 +236,7 @@ section#categorias div#div-cards a.card img:hover {
   width: 100%;
 }
 #novidades #slider-novidades .glide > div ul li > a h2.veja-mais {
-  background: red;
+  background: #9b111e;
   color: white;
   text-transform: uppercase;
   width: 100%;
@@ -276,11 +290,6 @@ section#categorias div#div-cards a.card img:hover {
 #promocoes #slider-promocoes .glide > div {
   margin: 0 70px;
 }
-@media (max-width: 992px) {
-  #promocoes #slider-promocoes .glide > div {
-    margin: 0;
-  }
-}
 #promocoes #slider-promocoes .glide > div ul {
   text-align: center;
 }
@@ -294,7 +303,7 @@ section#categorias div#div-cards a.card img:hover {
   width: 100%;
 }
 #promocoes #slider-promocoes .glide > div ul li > a h2.veja-mais {
-  background: red;
+  background: #9b111e;
   color: white;
   text-transform: uppercase;
   width: 100%;

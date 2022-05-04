@@ -92,9 +92,6 @@ section#stock-information div.stock-item input[type=color] {
 section#stock-information div.stock-item input#product-color-name {
   width: 40%;
 }
-section#stock-information div.stock-item label {
-  font-weight: bold;
-}
 
 article#action-buttons {
   display: flex;
@@ -126,7 +123,6 @@ article#action-buttons button.btn-primary:hover {
 }
 .item label {
   width: 120px;
-  font-weight: bold;
 }
 .item input#promotion {
   transform: scale(2);
